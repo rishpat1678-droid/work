@@ -4,22 +4,22 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Case Study Portfolio – Project Showcase</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet"/>
 <style>
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
   :root {
     --navy:      #07111F;
-    --slate:     #122744;
+    --slate:     #102540;
     --blue:      #1A6FDB;
-    --blue-lt:   #5CA4FA; 
+    --blue-lt:   #3D8EF0;
     --amber:     #F5A623;
-    --teal:      #13D9BB; 
-    --white:     #FFFFFF; 
-    --muted:     #B0C3DE; 
-    --card-bg:   #0F233C;
-    --border:    rgba(255,255,255,0.18); /* Darkened border for sharper lines */
-    --tag-bg:    rgba(26,111,219,0.25);
+    --teal:      #0BBFA4;
+    --white:     #F4F7FC;
+    --muted:     #8A9BB5;
+    --card-bg:   #0E1F35;
+    --border:    rgba(255,255,255,0.07);
+    --tag-bg:    rgba(26,111,219,0.15);
   }
 
   html { scroll-behavior: smooth; }
@@ -37,7 +37,7 @@
   .hero {
     position: relative;
     padding: 80px 60px 70px;
-    background: linear-gradient(135deg, #07111F 0%, #102646 60%, #0A1E33 100%);
+    background: linear-gradient(135deg, #07111F 0%, #0C2040 60%, #071828 100%);
     border-bottom: 1px solid var(--border);
     overflow: hidden;
   }
@@ -46,51 +46,49 @@
     position: absolute;
     top: -120px; right: -120px;
     width: 480px; height: 480px;
-    background: radial-gradient(circle, rgba(26,111,219,0.22) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(26,111,219,0.18) 0%, transparent 70%);
     pointer-events: none;
   }
   .hero-label {
     display: inline-block;
     background: var(--tag-bg);
     color: var(--blue-lt);
-    font-size: 12px;
-    font-weight: 700;
+    font-size: 11px;
+    font-weight: 600;
     letter-spacing: 2px;
     text-transform: uppercase;
-    padding: 6px 16px;
+    padding: 5px 14px;
     border-radius: 20px;
-    border: 1px solid rgba(26,111,219,0.4);
+    border: 1px solid rgba(26,111,219,0.3);
     margin-bottom: 22px;
   }
   .hero h1 {
     font-family: 'Space Grotesk', sans-serif;
-    font-size: clamp(34px, 5vw, 54px);
+    font-size: clamp(32px, 5vw, 52px);
     font-weight: 700;
     line-height: 1.15;
     max-width: 700px;
-    margin-bottom: 20px;
-    color: var(--white);
+    margin-bottom: 18px;
   }
   .hero h1 span { color: var(--blue-lt); }
   .hero p {
-    font-size: 16.5px;
+    font-size: 16px;
     color: var(--muted);
-    max-width: 600px;
-    margin-bottom: 40px;
-    font-weight: 500;
+    max-width: 560px;
+    margin-bottom: 36px;
   }
   .hero-meta {
     display: flex;
     gap: 36px;
     flex-wrap: wrap;
   }
-  .hero-meta-item { display: flex; flex-direction: column; gap: 4px; }
+  .hero-meta-item { display: flex; flex-direction: column; gap: 3px; }
   .hero-meta-item .label {
-    font-size: 11px; font-weight: 700; letter-spacing: 1.5px;
-    text-transform: uppercase; color: var(--blue-lt);
+    font-size: 10px; font-weight: 600; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--muted);
   }
   .hero-meta-item .value {
-    font-size: 15px; font-weight: 700; color: var(--white);
+    font-size: 14px; font-weight: 600; color: var(--white);
   }
 
   /* ─── TOC ───────────────────────────────────── */
@@ -103,13 +101,12 @@
     flex-wrap: wrap;
   }
   .toc a {
-    color: var(--white);
+    color: var(--muted);
     text-decoration: none;
-    font-size: 13.5px;
-    font-weight: 600;
-    padding: 8px 18px;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 6px 16px;
     border-radius: 20px;
-    background: rgba(255, 255, 255, 0.05);
     border: 1px solid var(--border);
     transition: all .2s;
   }
@@ -128,13 +125,12 @@
   }
   .project-number {
     flex-shrink: 0;
-    width: 58px; height: 58px;
+    width: 56px; height: 56px;
     border-radius: 14px;
     background: linear-gradient(135deg, var(--blue), var(--blue-lt));
     display: flex; align-items: center; justify-content: center;
     font-family: 'Space Grotesk', sans-serif;
-    font-size: 24px; font-weight: 700;
-    color: var(--white);
+    font-size: 22px; font-weight: 700;
     box-shadow: 0 8px 24px rgba(26,111,219,0.35);
   }
   .project-number.amber-icon {
@@ -143,9 +139,9 @@
   }
   .project-title-block h2 {
     font-family: 'Space Grotesk', sans-serif;
-    font-size: 30px; font-weight: 700; margin-bottom: 8px; color: var(--white);
+    font-size: 28px; font-weight: 700; margin-bottom: 6px;
   }
-  .project-title-block .subtitle { color: var(--muted); font-size: 15px; font-weight: 500; margin-bottom: 10px; }
+  .project-title-block .subtitle { color: var(--muted); font-size: 14px; }
 
   /* ─── OVERVIEW GRID ─────────────────────────── */
   .overview-grid {
@@ -161,12 +157,12 @@
     padding: 22px 24px;
   }
   .overview-card .oc-label {
-    font-size: 11px; font-weight: 700; letter-spacing: 1.5px;
+    font-size: 10px; font-weight: 600; letter-spacing: 1.5px;
     text-transform: uppercase; color: var(--muted); margin-bottom: 8px;
   }
   .overview-card .oc-value {
     font-family: 'Space Grotesk', sans-serif;
-    font-size: 22px; font-weight: 700;
+    font-size: 20px; font-weight: 700;
   }
   .overview-card .oc-value.green  { color: #4ADE80; }
   .overview-card .oc-value.blue   { color: var(--blue-lt); }
@@ -174,48 +170,41 @@
   .overview-card .oc-value.teal   { color: var(--teal); }
   .overview-card .oc-value.white  { color: var(--white); }
 
-  /* ─── CHALLENGE & SOLUTION BLOCKS ───────────── */
+  /* ─── CHALLENGE BLOCK ───────────────────────── */
   .challenge-block {
     background: var(--card-bg);
-    border-left: 4px solid var(--amber);
+    border-left: 3px solid var(--amber);
     border-radius: 0 14px 14px 0;
     padding: 24px 28px;
     margin-bottom: 40px;
-    border-top: 1px solid var(--border);
-    border-right: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
   }
   .challenge-block h4 {
     font-family: 'Space Grotesk', sans-serif;
-    font-size: 14px; font-weight: 700; letter-spacing: 1px;
+    font-size: 13px; font-weight: 600; letter-spacing: 1px;
     text-transform: uppercase; color: var(--amber); margin-bottom: 10px;
   }
-  .challenge-block p { color: #FFFFFF; font-size: 15px; line-height: 1.75; font-weight: 400; }
+  .challenge-block p { color: #C5D2E5; font-size: 14.5px; line-height: 1.75; }
 
   .solution-block {
     background: var(--card-bg);
-    border-left: 4px solid var(--teal);
+    border-left: 3px solid var(--teal);
     border-radius: 0 14px 14px 0;
     padding: 24px 28px;
     margin-bottom: 48px;
-    border-top: 1px solid var(--border);
-    border-right: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
   }
   .solution-block h4 {
     font-family: 'Space Grotesk', sans-serif;
-    font-size: 14px; font-weight: 700; letter-spacing: 1px;
+    font-size: 13px; font-weight: 600; letter-spacing: 1px;
     text-transform: uppercase; color: var(--teal); margin-bottom: 10px;
   }
-  .solution-block p { color: #FFFFFF; font-size: 15px; line-height: 1.75; font-weight: 400; }
+  .solution-block p { color: #C5D2E5; font-size: 14.5px; line-height: 1.75; }
 
   /* ─── SECTION TITLE ─────────────────────────── */
   .sub-heading {
     font-family: 'Space Grotesk', sans-serif;
-    font-size: 20px; font-weight: 700;
-    margin-bottom: 24px;
+    font-size: 18px; font-weight: 600;
+    margin-bottom: 20px;
     display: flex; align-items: center; gap: 10px;
-    color: var(--white);
   }
   .sub-heading::after {
     content: '';
@@ -223,90 +212,104 @@
     background: var(--border);
   }
 
-  /* ─── TECH STACK TABLE (FIXED & FULLY VISIBLE) ─── */
+  /* ─── FIXED HIGH-VISIBILITY TECH STACK TABLE ─── */
   .table-wrap { 
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
     overflow-x: auto; 
     margin-bottom: 48px; 
-    border: 1px solid #1E3A61; 
-    border-radius: 12px; 
-    background-color: #0F233C !important;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background-color: var(--card-bg) !important; /* Forces background containment */
   }
   table {
-    display: table !important;
     width: 100%; 
     border-collapse: collapse;
-    font-size: 14px;
-    background-color: #0F233C !important;
+    font-size: 13.5px;
+    background-color: var(--card-bg) !important; /* Locks background color */
   }
   thead tr {
-    background-color: #162E4E !important;
+    background: rgba(26,111,219,0.16) !important;
   }
   thead th {
-    padding: 16px 18px;
+    padding: 14px 18px;
     text-align: left;
-    font-size: 12px; font-weight: 700;
+    font-size: 11px; font-weight: 700;
     letter-spacing: 1.2px; text-transform: uppercase;
-    color: #FFFFFF !important;
-    border-bottom: 3px solid var(--blue);
+    color: #4A9FFF !important; /* Sharper contrast header text */
+    border-bottom: 2px solid rgba(26,111,219,0.4);
   }
   tbody tr {
-    border-bottom: 1px solid #1E3A61;
-    background-color: #0F233C !important;
+    border-bottom: 1px solid var(--border);
+    background-color: var(--card-bg) !important;
   }
   tbody tr:nth-child(even) {
-    background-color: #132A4A !important; /* Alternating row visibility colors */
+    background-color: #0B1A2E !important; /* Subtle alternate dark color rows */
+  }
+  tbody tr:hover { 
+    background-color: #122844 !important; 
   }
   tbody td {
-    padding: 16px 18px;
-    color: #FFFFFF !important; /* Forced maximum white contrast */
+    padding: 14px 18px;
+    color: #E2EAF4 !important; /* Much lighter text color for high dark-mode contrast */
     vertical-align: top;
   }
   tbody td:first-child { 
-    color: var(--blue-lt) !important; 
-    font-weight: 700; 
-    width: 220px; 
-    background-color: #112643 !important; 
+    color: var(--white) !important; 
+    font-weight: 600; 
+    width: 190px; 
   }
-  
+
   .tag {
     display: inline-block;
-    background: rgba(255,255,255,0.12);
-    color: #FFFFFF !important;
-    border: 1px solid rgba(255,255,255,0.2);
-    font-size: 12px; font-weight: 600;
-    padding: 4px 10px; border-radius: 6px;
-    margin: 3px 4px 3px 0;
-    white-space: nowrap;
+    background: var(--tag-bg);
+    color: var(--blue-lt);
+    border: 1px solid rgba(26,111,219,0.35);
+    font-size: 11px; font-weight: 600;
+    padding: 3px 9px; border-radius: 6px;
+    margin: 2px 3px 2px 0;
   }
-  .tag.teal-tag { background: #004D40; color: #13D9BB !important; border-color: #13D9BB; }
-  .tag.amber-tag { background: #4D3300; color: #F5A623 !important; border-color: #F5A623; }
-  .tag.green-tag { background: #0A3D1A; color: #4ADE80 !important; border-color: #4ADE80; }
+  .tag.teal-tag {
+    background: rgba(11,191,164,0.15);
+    color: var(--teal);
+    border-color: rgba(11,191,164,0.35);
+  }
+  .tag.amber-tag {
+    background: rgba(245,166,35,0.15);
+    color: var(--amber);
+    border-color: rgba(245,166,35,0.35);
+  }
+  .tag.green-tag {
+    background: rgba(74,222,128,0.12);
+    color: #4ADE80;
+    border-color: rgba(74,222,128,0.3);
+  }
 
   /* ─── FEATURES GRID ─────────────────────────── */
   .features-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 16px;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 14px;
     margin-bottom: 48px;
   }
   .feature-card {
     background: var(--card-bg);
     border: 1px solid var(--border);
     border-radius: 12px;
-    padding: 22px;
+    padding: 20px 22px;
+    transition: border-color .2s, transform .2s;
+  }
+  .feature-card:hover {
+    border-color: rgba(26,111,219,0.4);
+    transform: translateY(-2px);
   }
   .feature-card .fc-icon {
-    font-size: 24px; margin-bottom: 12px;
+    font-size: 22px; margin-bottom: 10px;
   }
   .feature-card h5 {
     font-family: 'Space Grotesk', sans-serif;
-    font-size: 15px; font-weight: 700; margin-bottom: 8px; color: var(--white);
+    font-size: 14px; font-weight: 600; margin-bottom: 6px;
   }
   .feature-card p {
-    font-size: 13.5px; color: #D0DFF2; line-height: 1.6; font-weight: 400;
+    font-size: 12.5px; color: var(--muted); line-height: 1.6;
   }
 
   /* ─── OUTCOME STRIP ─────────────────────────── */
@@ -322,17 +325,17 @@
   }
   .outcome-item {
     background: var(--card-bg);
-    padding: 26px 28px;
+    padding: 24px 28px;
     text-align: center;
   }
   .outcome-item .big {
     font-family: 'Space Grotesk', sans-serif;
-    font-size: 32px; font-weight: 700;
+    font-size: 30px; font-weight: 700;
     line-height: 1;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
   }
   .outcome-item .desc {
-    font-size: 13px; color: var(--white); font-weight: 500; letter-spacing: 0.5px;
+    font-size: 12px; color: var(--muted); letter-spacing: 0.5px;
   }
 
   /* ─── DIVIDER ─────────────────────────── */
@@ -342,72 +345,53 @@
     background: linear-gradient(90deg, var(--slate), var(--navy));
     border-top: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
-    height: 56px;
-    font-size: 13px; font-weight: 700;
+    height: 52px;
+    font-size: 12px; font-weight: 600;
     letter-spacing: 2px; text-transform: uppercase;
-    color: var(--blue-lt);
+    color: var(--muted);
   }
   .divider-label .dot {
-    width: 10px; height: 10px; border-radius: 50%;
-    background: var(--blue-lt);
-    box-shadow: 0 0 10px var(--blue-lt);
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--blue);
+    box-shadow: 0 0 10px var(--blue);
   }
 
-  /* ─── MODEL METADATA BADGES ─────────────────── */
+  /* ─── COMPANY BADGE ─────────────────────── */
   .company-badge {
     display: inline-flex; align-items: center; gap: 6px;
-    background: rgba(19,217,187,0.12);
-    border: 1px solid rgba(19,217,187,0.3);
+    background: rgba(11,191,164,0.1);
+    border: 1px solid rgba(11,191,164,0.25);
     color: var(--teal);
-    font-size: 12px; font-weight: 700;
-    padding: 5px 14px; border-radius: 20px;
+    font-size: 11px; font-weight: 600;
+    padding: 4px 12px; border-radius: 20px;
     margin-top: 8px; margin-right: 8px;
   }
   .acq-badge {
     display: inline-flex; align-items: center; gap: 6px;
-    background: rgba(245,166,35,0.12);
-    border: 1px solid rgba(245,166,35,0.3);
+    background: rgba(245,166,35,0.1);
+    border: 1px solid rgba(245,166,35,0.25);
     color: var(--amber);
-    font-size: 12px; font-weight: 700;
-    padding: 5px 14px; border-radius: 20px;
+    font-size: 11px; font-weight: 600;
+    padding: 4px 12px; border-radius: 20px;
     margin-top: 8px; margin-right: 8px;
   }
   .acq-badge.green-acq {
-    background: rgba(74,222,128,0.12);
-    border-color: rgba(74,222,128,0.3);
+    background: rgba(74,222,128,0.08);
+    border-color: rgba(74,222,128,0.2);
     color: #4ADE80;
   }
 
   /* ─── FOOTER ─────────────────────────── */
   footer {
-    padding: 50px 60px;
+    padding: 40px 60px;
     background: var(--slate);
     text-align: center;
-    color: var(--white);
-    font-size: 14px;
-    border-top: 3px solid var(--blue);
+    color: var(--muted);
+    font-size: 13px;
   }
-  footer p { margin-bottom: 10px; line-height: 1.6; }
-  footer strong { color: var(--white); font-weight: 700; }
-  
-  .footer-cta {
-    margin-top: 22px;
-    font-size: 15px;
-    color: var(--white);
-    background: rgba(7, 17, 31, 0.6);
-    padding: 16px 28px;
-    border-radius: 10px;
-    display: inline-block;
-    border: 1px solid var(--blue);
-    font-weight: 500;
-  }
-  .footer-cta a {
-    color: #64B5FF;
-    text-decoration: underline;
-    font-weight: 700;
-  }
+  footer strong { color: var(--white); }
 
-  /* ─── RESPONSIVE & GLOBAL MONITORING ─────────────────────── */
+  /* ─── RESPONSIVE ─────────────────────── */
   @media (max-width: 768px) {
     .hero, .toc, .section, .divider-label, footer { padding-left: 24px; padding-right: 24px; }
     .hero { padding-top: 52px; padding-bottom: 48px; }
@@ -415,19 +399,10 @@
     .hero-meta { gap: 20px; }
     .toc { padding-top: 14px; padding-bottom: 14px; }
   }
-
-  @media print {
-    body { background: #07111F !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-    .toc { display: none !important; }
-    .divider-label { page-break-before: always; margin-top: 0; }
-    .table-wrap, .features-grid, .outcome-strip, .challenge-block, .solution-block { page-break-inside: avoid; }
-    .table-wrap, table, tbody tr, tbody td { background-color: #0F233C !important; color: #FFFFFF !important; }
-  }
 </style>
 </head>
 <body>
 
-<!-- ═══ HERO ═══ -->
 <section class="hero">
   <div class="hero-label">Project Portfolio · Case Studies</div>
   <h1>Delivering <span>Enterprise-Grade</span><br>Digital Solutions</h1>
@@ -452,33 +427,27 @@
   </div>
 </section>
 
-<!-- ═══ TOC ═══ -->
 <nav class="toc">
-  <a href="#project1">📌 Project 1 — Social Platform (Chris)</a>
-  <a href="#project2">📌 Project 2 — CareSoft SaaS (Joseph K. Mungai)</a>
-  <a href="#project3">📌 Project 3 — nomonday.mx (Fidel)</a>
+  <a href="#project1">📌 Project 1 — Social Platform (Chris) · Nethues</a>
+  <a href="#project2">📌 Project 2 — CareSoft SaaS (Joseph K. Mungai) · Webappmate</a>
+  <a href="#project3">📌 Project 3 — nomonday.mx (Fidel) · Webappmate</a>
 </nav>
 
-<!-- ══════════════════════════════════════════════════
-     PROJECT 1
-══════════════════════════════════════════════════ -->
 <div class="divider-label" id="project1">
   <div class="dot"></div>
   Case Study 01 &nbsp;·&nbsp; Social Networking Platform
 </div>
 
 <section class="section">
-  <!-- Header -->
   <div class="project-header">
     <div class="project-number">01</div>
     <div class="project-title-block">
       <h2>From Dating Site to Full-Scale Social Network</h2>
       <div class="subtitle">Client: Chris &nbsp;·&nbsp; Market: United Kingdom &nbsp;·&nbsp; Platform: Web Application</div>
-      <span class="company-badge">🏢 Custom Development Model</span>
+      <span class="company-badge">🏢 Nethues Technologies Pvt. Ltd.</span>
     </div>
   </div>
 
-  <!-- Metrics -->
   <div class="overview-grid">
     <div class="overview-card">
       <div class="oc-label">Initial Quote</div>
@@ -502,19 +471,16 @@
     </div>
   </div>
 
-  <!-- Challenge -->
   <div class="challenge-block">
     <h4>⚡ The Challenge</h4>
-    <p>The client initially approached us with a straightforward brief — build a dating website using custom PHP, with an approximate budget of £20,000. However, as development progressed, the scope evolved significantly. The client began requesting additional social features, expanding the vision from a niche dating platform to a full-scale social networking site comparable to Facebook — complete with news feeds, user groups, real-time messaging, media sharing, and community-driven engagement tools. This required a critical technology pivot and a complete re-evaluation of the project architecture.</p>
+    <p>The client initially approached us with a straightforward brief — build a <strong>dating website</strong> using custom PHP, with an approximate budget of £20,000. However, as development progressed, the scope evolved significantly. The client began requesting additional social features, expanding the vision from a niche dating platform to a <strong>full-scale social networking site</strong> comparable to Facebook — complete with news feeds, user groups, real-time messaging, media sharing, and community-driven engagement tools. This required a critical technology pivot and a complete re-evaluation of the project architecture.</p>
   </div>
 
-  <!-- Solution -->
   <div class="solution-block">
     <h4>✅ Our Approach &amp; Solution</h4>
-    <p>To accommodate the expanding scope while maintaining code quality, scalability, and long-term maintainability, we recommended migrating from custom PHP to the Laravel framework on the backend — providing robust MVC architecture, built-in authentication, and a rich ecosystem of packages. For the frontend, we transitioned to a React.js + Angular hybrid — React powering dynamic user-facing components and Angular handling the admin dashboard and structured data views. The client accepted our proposal and we proceeded with a phased delivery model. Upon launch, we also successfully upsold a dedicated developer retainer of 2 full-time developers at £4,000 each per month, ensuring continuous feature development and platform support.</p>
+    <p>To accommodate the expanding scope while maintaining code quality, scalability, and long-term maintainability, we recommended migrating from custom PHP to the <strong>Laravel framework</strong> on the backend — providing robust MVC architecture, built-in authentication, and a rich ecosystem of packages. For the frontend, we transitioned to a <strong>React.js + Angular</strong> hybrid — React powering dynamic user-facing components and Angular handling the admin dashboard and structured data views. The client accepted our proposal and we proceeded with a phased delivery model. Upon launch, we also successfully upsold a <strong>dedicated developer retainer</strong> of 2 full-time developers at £4,000 each per month, ensuring continuous feature development and platform support.</p>
   </div>
 
-  <!-- Tech Stack Table -->
   <div class="sub-heading">Technology Stack</div>
   <div class="table-wrap">
     <table>
@@ -621,7 +587,6 @@
     </table>
   </div>
 
-  <!-- Features -->
   <div class="sub-heading">Features &amp; Functionalities Delivered</div>
   <div class="features-grid">
     <div class="feature-card">
@@ -686,7 +651,6 @@
     </div>
   </div>
 
-  <!-- Outcomes -->
   <div class="sub-heading">Project Outcomes</div>
   <div class="outcome-strip">
     <div class="outcome-item">
@@ -708,27 +672,23 @@
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════════════
-     PROJECT 2
-══════════════════════════════════════════════════ -->
+
 <div class="divider-label" id="project2">
   <div class="dot" style="background:var(--amber); box-shadow:0 0 10px var(--amber);"></div>
   Case Study 02 &nbsp;·&nbsp; HealthTech SaaS Platform
 </div>
 
 <section class="section">
-  <!-- Header -->
   <div class="project-header">
     <div class="project-number amber-icon">02</div>
     <div class="project-title-block">
       <h2>CareSoft — Special Needs &amp; Group Home Management SaaS</h2>
       <div class="subtitle">Client: Joseph K. Mungai &nbsp;·&nbsp; Website: caresoft.us &nbsp;·&nbsp; Market: United States &nbsp;·&nbsp; Platform: Web SaaS</div>
-      <span class="company-badge">🏢 Managed Cloud Project</span>
-      <span class="acq-badge">📲 Scope Sourced via Direct Channel</span>
+      <span class="company-badge">🏢 Webappmate (Fly On IT India Pvt. Ltd.)</span>
+      <span class="acq-badge">📲 Acquired via WhatsApp Marketing</span>
     </div>
   </div>
 
-  <!-- Metrics -->
   <div class="overview-grid">
     <div class="overview-card">
       <div class="oc-label">Project Quote</div>
@@ -752,19 +712,16 @@
     </div>
   </div>
 
-  <!-- Challenge -->
   <div class="challenge-block">
     <h4>⚡ The Challenge</h4>
-    <p>Joseph K. Mungai required a professional, HIPAA-compliant SaaS web platform to serve the mental health, group home, day program, senior care, and autism support industries across the United States. The platform needed to digitise and streamline the complex documentation, billing, treatment planning, and compliance reporting requirements of Group Homes, Adult Residential Facilities (ARF), and Day Programs — replacing fragmented paper-based systems with a unified, easy-to-use cloud solution. The product also needed to be commercially viable with a scalable subscription model, clean marketing website, and a free trial/demo pathway.</p>
+    <p>Joseph K. Mungai required a <strong>professional, HIPAA-compliant SaaS web platform</strong> to serve the mental health, group home, day program, senior care, and autism support industries across the United States. The platform needed to digitise and streamline the complex documentation, billing, treatment planning, and compliance reporting requirements of <strong>Group Homes, Adult Residential Facilities (ARF), and Day Programs</strong> — replacing fragmented paper-based systems with a unified, easy-to-use cloud solution. The product also needed to be commercially viable with a scalable subscription model, clean marketing website, and a free trial/demo pathway.</p>
   </div>
 
-  <!-- Solution -->
   <div class="solution-block">
     <h4>✅ Our Approach &amp; Solution</h4>
-    <p>We delivered a custom-built cloud SaaS platform with a marketing-forward public website and a fully functional application backend. The public site — built on a custom WordPress theme — communicates the product's value clearly with service pages, sample reports, demo scheduling, and testimonials. The core SaaS application was developed with a PHP/MySQL backend, supporting HIPAA-compliant data handling, encrypted storage, role-based access control, and a cloud-hosted multi-tenant architecture. Key integrations included QuickBooks export, automated medication reminders, state-required report generation, and an unlimited cloud storage layer — all accessible from any internet-connected device.</p>
+    <p>We delivered a <strong>custom-built cloud SaaS platform</strong> with a marketing-forward public website and a fully functional application backend. The public site — built on a <strong>custom WordPress theme</strong> — communicates the product's value clearly with service pages, sample reports, demo scheduling, and testimonials. The core SaaS application was developed with a <strong>PHP/MySQL backend</strong>, supporting HIPAA-compliant data handling, encrypted storage, role-based access control, and a cloud-hosted multi-tenant architecture. Key integrations included <strong>QuickBooks export</strong>, automated medication reminders, state-required report generation, and an unlimited cloud storage layer — all accessible from any internet-connected device.</p>
   </div>
 
-  <!-- Tech Stack Table -->
   <div class="sub-heading">Technology Stack</div>
   <div class="table-wrap">
     <table>
@@ -859,7 +816,6 @@
     </table>
   </div>
 
-  <!-- Features -->
   <div class="sub-heading">Features &amp; Functionalities Delivered</div>
   <div class="features-grid">
     <div class="feature-card">
@@ -924,7 +880,6 @@
     </div>
   </div>
 
-  <!-- Outcomes -->
   <div class="sub-heading">Project Outcomes</div>
   <div class="outcome-strip">
     <div class="outcome-item">
@@ -946,27 +901,22 @@
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════════════
-     PROJECT 3
-══════════════════════════════════════════════════ -->
 <div class="divider-label" id="project3">
   <div class="dot" style="background:#4ADE80; box-shadow:0 0 10px #4ADE80;"></div>
   Case Study 03 &nbsp;·&nbsp; eCommerce &amp; Experience Booking Platform
 </div>
 
 <section class="section">
-  <!-- Header -->
   <div class="project-header">
     <div class="project-number" style="background: linear-gradient(135deg, #16A34A, #4ADE80); box-shadow: 0 8px 24px rgba(74,222,128,0.3);">03</div>
     <div class="project-title-block">
       <h2>nomonday.mx — Fishing Tourism &amp; eCommerce Platform</h2>
       <div class="subtitle">Client: Fidel &nbsp;·&nbsp; Website: store.nomonday.mx &nbsp;·&nbsp; Market: Mexico &amp; LATAM &nbsp;·&nbsp; Platform: WooCommerce</div>
-      <span class="company-badge">🏢 Product Engineering Framework</span>
-      <span class="acq-badge green-acq">📞 Strategic Acquisition Model</span>
+      <span class="company-badge">🏢 Webappmate (Fly On IT India Pvt. Ltd.)</span>
+      <span class="acq-badge green-acq">📞 Acquired via Cold Calling</span>
     </div>
   </div>
 
-  <!-- Metrics -->
   <div class="overview-grid">
     <div class="overview-card">
       <div class="oc-label">Industry</div>
@@ -990,19 +940,16 @@
     </div>
   </div>
 
-  <!-- Challenge -->
   <div class="challenge-block">
     <h4>⚡ The Challenge</h4>
-    <p>Fidel, founder of nomonday.mx, required a professional bilingual eCommerce and experience booking platform to market and sell premium fishing day trips across Mexico and LATAM — spanning fly fishing, bass fishing, and offshore expeditions at destinations including Cancún, Xcalak, Campeche, Mazatlán, Lake El Salto, Lake Chapala, and more. The platform needed to handle complex booking logic (partial deposits, cancellation policies), multiple trip categories, branded merchandise, gift cards, raffles, and seamless customer communication — all while building an SEO-optimised online presence in two languages to attract international anglers and local enthusiasts alike. The client was identified and onboarded entirely through proactive outreach pipeline management, demonstrating our ability to generate business from zero prior contact.</p>
+    <p>Fidel, founder of <strong>nomonday.mx</strong>, required a professional bilingual eCommerce and experience booking platform to market and sell <strong>premium fishing day trips across Mexico and LATAM</strong> — spanning fly fishing, bass fishing, and offshore expeditions at destinations including Cancún, Xcalak, Campeche, Mazatlán, Lake El Salto, Lake Chapala, and more. The platform needed to handle complex booking logic (partial deposits, cancellation policies), multiple trip categories, branded merchandise, gift cards, raffles, and seamless customer communication — all while building an SEO-optimised online presence in two languages to attract international anglers and local enthusiasts alike. The client was identified and onboarded entirely through <strong>proactive cold calling</strong>, demonstrating our ability to generate business from zero prior contact.</p>
   </div>
 
-  <!-- Solution -->
   <div class="solution-block">
     <h4>✅ Our Approach &amp; Solution</h4>
-    <p>We built a fully featured WooCommerce-powered store on WordPress with a custom Elementor-designed theme that reflects the brand's adventurous, outdoors identity. The platform supports multiple product types — bookable day trips with per-day pricing, branded merchandise caps, digital gift cards ($250–$1,512 USD), and raffle products — all under one roof. We integrated Stripe and PayPal for secure checkout, a 50% deposit booking model with free cancellation terms, and a WhatsApp Business channel for real-time customer support. A bilingual (EN/ES) architecture was implemented to serve both international tourists and the Mexican domestic market. Email marketing via Monster Campaigns, Facebook Pixel for ad conversion tracking, countdown promotional banners, and a wishlist system were also delivered, giving the client a complete go-to-market toolkit.</p>
+    <p>We built a fully featured <strong>WooCommerce-powered store</strong> on WordPress with a custom Elementor-designed theme that reflects the brand's adventurous, outdoors identity. The platform supports <strong>multiple product types</strong> — bookable day trips with per-day pricing, branded merchandise caps, digital gift cards ($250–$1,500 USD), and raffle products — all under one roof. We integrated <strong>Stripe and PayPal</strong> for secure checkout, a 50% deposit booking model with free cancellation terms, and a <strong>WhatsApp Business</strong> channel for real-time customer support. A bilingual (EN/ES) architecture was implemented to serve both international tourists and the Mexican domestic market. Email marketing via Monster Campaigns, Facebook Pixel for ad conversion tracking, countdown promotional banners, and a wishlist system were also delivered, giving the client a complete go-to-market toolkit.</p>
   </div>
 
-  <!-- Tech Stack Table -->
   <div class="sub-heading">Technology Stack</div>
   <div class="table-wrap">
     <table>
@@ -1060,7 +1007,7 @@
         <tr>
           <td>Gift Cards</td>
           <td><span class="tag">WooCommerce Gift Cards</span></td>
-          <td>Digital gift card product ($250–$1,512), redeemable at checkout</td>
+          <td>Digital gift card product ($250–$1,500), redeemable at checkout</td>
           <td><span class="tag amber-tag">eCommerce</span></td>
         </tr>
         <tr>
@@ -1109,7 +1056,6 @@
     </table>
   </div>
 
-  <!-- Features -->
   <div class="sub-heading">Features &amp; Functionalities Delivered</div>
   <div class="features-grid">
     <div class="feature-card">
@@ -1135,7 +1081,7 @@
     <div class="feature-card">
       <div class="fc-icon">🎁</div>
       <h5>Digital Gift Card System</h5>
-      <p>Purchasable digital gift cards ($250–$1,512 USD) for fishing trips — ideal for gifting experiences, driving new customer acquisition.</p>
+      <p>Purchasable digital gift cards ($250–$1,500 USD) for fishing trips — ideal for gifting experiences, driving new customer acquisition.</p>
     </div>
     <div class="feature-card">
       <div class="fc-icon">🏆</div>
@@ -1174,7 +1120,6 @@
     </div>
   </div>
 
-  <!-- Outcomes -->
   <div class="sub-heading">Project Outcomes</div>
   <div class="outcome-strip">
     <div class="outcome-item">
@@ -1186,8 +1131,8 @@
       <div class="desc">Languages — English &amp; Spanish</div>
     </div>
     <div class="outcome-item">
-      <div class="big" style="color:var(--amber);">Direct Outreach</div>
-      <div class="desc">Client Acquired via Proactive Engagement</div>
+      <div class="big" style="color:var(--amber);">Cold Call</div>
+      <div class="desc">Client Acquired via Proactive Outreach</div>
     </div>
     <div class="outcome-item">
       <div class="big" style="color:var(--teal);">MX+LATAM</div>
@@ -1196,13 +1141,14 @@
   </div>
 </section>
 
-<!-- ═══ FOOTER ═══ -->
 <footer>
-  <p style="margin-bottom:8px;"><strong>Confidential — Prepared for Client Presentation</strong></p>
-  <p>Projects delivered across multiple high-growth software frameworks — spanning Custom End-to-End Development, Infrastructure Engineering, and Dedicated Technical Support engagement models.</p>
-  <div class="footer-cta">
-    For further details, demos, or a custom proposal — please reach out directly via email at <a href="mailto:rishpat1678@gmail.com">rishpat1678@gmail.com</a> or WhatsApp at <a href="https://wa.me/919899256945" target="_blank">+91-9899256945</a>.
-  </div>
+  <p style="margin-bottom:8px;">
+    <strong>Confidential — Prepared for Client Presentation</strong>
+  </p>
+  <p>Projects delivered across Nethues Technologies Pvt. Ltd. and Webappmate (Fly On IT India Pvt. Ltd.) — spanning Custom Development, Staff Augmentation &amp; Dedicated Resource engagement models.</p>
+  <p style="margin-top:12px; font-size:12px; color:#4A6080;">
+    For further details, demos, or a custom proposal — please reach out to our Business Development team.
+  </p>
 </footer>
 
 </body>
