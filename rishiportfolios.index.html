@@ -12,13 +12,13 @@
     --navy:      #07111F;
     --slate:     #122744;
     --blue:      #1A6FDB;
-    --blue-lt:   #5CA4FA; /* Brightened for absolute clarity in PDF exports */
+    --blue-lt:   #5CA4FA; 
     --amber:     #F5A623;
-    --teal:      #13D9BB; /* High-contrast text clarity teal */
-    --white:     #FFFFFF; /* Solid white for main text nodes */
-    --muted:     #B0C3DE; /* Lightened significantly to prevent readability dropouts */
+    --teal:      #13D9BB; 
+    --white:     #FFFFFF; 
+    --muted:     #B0C3DE; 
     --card-bg:   #0F233C;
-    --border:    rgba(255,255,255,0.12);
+    --border:    rgba(255,255,255,0.18); /* Darkened border for sharper lines */
     --tag-bg:    rgba(26,111,219,0.25);
   }
 
@@ -174,7 +174,7 @@
   .overview-card .oc-value.teal   { color: var(--teal); }
   .overview-card .oc-value.white  { color: var(--white); }
 
-  /* ─── CHALLENGE BLOCK ───────────────────────── */
+  /* ─── CHALLENGE & SOLUTION BLOCKS ───────────── */
   .challenge-block {
     background: var(--card-bg);
     border-left: 4px solid var(--amber);
@@ -190,7 +190,7 @@
     font-size: 14px; font-weight: 700; letter-spacing: 1px;
     text-transform: uppercase; color: var(--amber); margin-bottom: 10px;
   }
-  .challenge-block p { color: #E2EAF4; font-size: 15px; line-height: 1.75; font-weight: 400; }
+  .challenge-block p { color: #FFFFFF; font-size: 15px; line-height: 1.75; font-weight: 400; }
 
   .solution-block {
     background: var(--card-bg);
@@ -207,7 +207,7 @@
     font-size: 14px; font-weight: 700; letter-spacing: 1px;
     text-transform: uppercase; color: var(--teal); margin-bottom: 10px;
   }
-  .solution-block p { color: #E2EAF4; font-size: 15px; line-height: 1.75; font-weight: 400; }
+  .solution-block p { color: #FFFFFF; font-size: 15px; line-height: 1.75; font-weight: 400; }
 
   /* ─── SECTION TITLE ─────────────────────────── */
   .sub-heading {
@@ -223,59 +223,67 @@
     background: var(--border);
   }
 
-  /* ─── TECH STACK TABLE ──────────────────────── */
-  .table-wrap { overflow-x: auto; margin-bottom: 48px; border: 1px solid var(--border); border-radius: 12px; }
+  /* ─── TECH STACK TABLE (FIXED & FULLY VISIBLE) ─── */
+  .table-wrap { 
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    overflow-x: auto; 
+    margin-bottom: 48px; 
+    border: 1px solid #1E3A61; 
+    border-radius: 12px; 
+    background-color: #0F233C !important;
+  }
   table {
-    width: 100%; border-collapse: collapse;
+    display: table !important;
+    width: 100%; 
+    border-collapse: collapse;
     font-size: 14px;
+    background-color: #0F233C !important;
   }
   thead tr {
-    background: rgba(26,111,219,0.2);
+    background-color: #162E4E !important;
   }
   thead th {
-    padding: 14px 18px;
+    padding: 16px 18px;
     text-align: left;
     font-size: 12px; font-weight: 700;
     letter-spacing: 1.2px; text-transform: uppercase;
-    color: var(--white);
-    border-bottom: 2px solid var(--blue);
+    color: #FFFFFF !important;
+    border-bottom: 3px solid var(--blue);
   }
   tbody tr {
-    border-bottom: 1px solid var(--border);
-    background: rgba(14,35,60,0.4);
+    border-bottom: 1px solid #1E3A61;
+    background-color: #0F233C !important;
   }
-  tbody tr:last-child { border-bottom: none; }
+  tbody tr:nth-child(even) {
+    background-color: #132A4A !important; /* Alternating row visibility colors */
+  }
   tbody td {
-    padding: 14px 18px;
-    color: #E2EAF4;
+    padding: 16px 18px;
+    color: #FFFFFF !important; /* Forced maximum white contrast */
     vertical-align: top;
   }
-  tbody td:first-child { color: var(--white); font-weight: 600; width: 190px; background: rgba(255,255,255,0.02); }
+  tbody td:first-child { 
+    color: var(--blue-lt) !important; 
+    font-weight: 700; 
+    width: 220px; 
+    background-color: #112643 !important; 
+  }
   
   .tag {
     display: inline-block;
-    background: rgba(255,255,255,0.08);
-    color: var(--white);
-    border: 1px solid var(--border);
+    background: rgba(255,255,255,0.12);
+    color: #FFFFFF !important;
+    border: 1px solid rgba(255,255,255,0.2);
     font-size: 12px; font-weight: 600;
     padding: 4px 10px; border-radius: 6px;
     margin: 3px 4px 3px 0;
+    white-space: nowrap;
   }
-  .tag.teal-tag {
-    background: rgba(19,217,187,0.15);
-    color: var(--teal);
-    border-color: rgba(19,217,187,0.4);
-  }
-  .tag.amber-tag {
-    background: rgba(245,166,35,0.15);
-    color: var(--amber);
-    border-color: rgba(245,166,35,0.4);
-  }
-  .tag.green-tag {
-    background: rgba(74,222,128,0.15);
-    color: #4ADE80;
-    border-color: rgba(74,222,128,0.4);
-  }
+  .tag.teal-tag { background: #004D40; color: #13D9BB !important; border-color: #13D9BB; }
+  .tag.amber-tag { background: #4D3300; color: #F5A623 !important; border-color: #F5A623; }
+  .tag.green-tag { background: #0A3D1A; color: #4ADE80 !important; border-color: #4ADE80; }
 
   /* ─── FEATURES GRID ─────────────────────────── */
   .features-grid {
@@ -298,7 +306,7 @@
     font-size: 15px; font-weight: 700; margin-bottom: 8px; color: var(--white);
   }
   .feature-card p {
-    font-size: 13.5px; color: var(--muted); line-height: 1.6; font-weight: 400;
+    font-size: 13.5px; color: #D0DFF2; line-height: 1.6; font-weight: 400;
   }
 
   /* ─── OUTCOME STRIP ─────────────────────────── */
@@ -399,7 +407,7 @@
     font-weight: 700;
   }
 
-  /* ─── RESPONSIVE & PDF PRINT RIGGING ─────────────────────── */
+  /* ─── RESPONSIVE & GLOBAL MONITORING ─────────────────────── */
   @media (max-width: 768px) {
     .hero, .toc, .section, .divider-label, footer { padding-left: 24px; padding-right: 24px; }
     .hero { padding-top: 52px; padding-bottom: 48px; }
@@ -409,11 +417,11 @@
   }
 
   @media print {
-    body { background: #07111F; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-    .toc { display: none; }
+    body { background: #07111F !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .toc { display: none !important; }
     .divider-label { page-break-before: always; margin-top: 0; }
     .table-wrap, .features-grid, .outcome-strip, .challenge-block, .solution-block { page-break-inside: avoid; }
-    tbody td:first-child { background: transparent !important; }
+    .table-wrap, table, tbody tr, tbody td { background-color: #0F233C !important; color: #FFFFFF !important; }
   }
 </style>
 </head>
@@ -497,13 +505,13 @@
   <!-- Challenge -->
   <div class="challenge-block">
     <h4>⚡ The Challenge</h4>
-    <p>The client initially approached us with a straightforward brief — build a <strong>dating website</strong> using custom PHP, with an approximate budget of £20,000. However, as development progressed, the scope evolved significantly. The client began requesting additional social features, expanding the vision from a niche dating platform to a <strong>full-scale social networking site</strong> comparable to Facebook — complete with news feeds, user groups, real-time messaging, media sharing, and community-driven engagement tools. This required a critical technology pivot and a complete re-evaluation of the project architecture.</p>
+    <p>The client initially approached us with a straightforward brief — build a dating website using custom PHP, with an approximate budget of £20,000. However, as development progressed, the scope evolved significantly. The client began requesting additional social features, expanding the vision from a niche dating platform to a full-scale social networking site comparable to Facebook — complete with news feeds, user groups, real-time messaging, media sharing, and community-driven engagement tools. This required a critical technology pivot and a complete re-evaluation of the project architecture.</p>
   </div>
 
   <!-- Solution -->
   <div class="solution-block">
     <h4>✅ Our Approach &amp; Solution</h4>
-    <p>To accommodate the expanding scope while maintaining code quality, scalability, and long-term maintainability, we recommended migrating from custom PHP to the <strong>Laravel framework</strong> on the backend — providing robust MVC architecture, built-in authentication, and a rich ecosystem of packages. For the frontend, we transitioned to a <strong>React.js + Angular</strong> hybrid — React powering dynamic user-facing components and Angular handling the admin dashboard and structured data views. The client accepted our proposal and we proceeded with a phased delivery model. Upon launch, we also successfully upsold a <strong>dedicated developer retainer</strong> of 2 full-time developers at £4,000 each per month, ensuring continuous feature development and platform support.</p>
+    <p>To accommodate the expanding scope while maintaining code quality, scalability, and long-term maintainability, we recommended migrating from custom PHP to the Laravel framework on the backend — providing robust MVC architecture, built-in authentication, and a rich ecosystem of packages. For the frontend, we transitioned to a React.js + Angular hybrid — React powering dynamic user-facing components and Angular handling the admin dashboard and structured data views. The client accepted our proposal and we proceeded with a phased delivery model. Upon launch, we also successfully upsold a dedicated developer retainer of 2 full-time developers at £4,000 each per month, ensuring continuous feature development and platform support.</p>
   </div>
 
   <!-- Tech Stack Table -->
@@ -519,7 +527,6 @@
         </tr>
       </thead>
       <tbody>
-        <!-- FRONTEND -->
         <tr>
           <td>Frontend Framework</td>
           <td><span class="tag">React.js</span></td>
@@ -550,7 +557,6 @@
           <td>Live chat, notifications, feed updates, typing indicators</td>
           <td><span class="tag teal-tag">Frontend</span></td>
         </tr>
-        <!-- BACKEND -->
         <tr>
           <td>Backend Framework</td>
           <td><span class="tag">Laravel (PHP)</span></td>
@@ -575,7 +581,6 @@
           <td>Secure API layer for frontend–backend communication</td>
           <td><span class="tag amber-tag">Backend</span></td>
         </tr>
-        <!-- DATABASE & INFRA -->
         <tr>
           <td>Primary Database</td>
           <td><span class="tag">MySQL</span></td>
@@ -703,7 +708,6 @@
   </div>
 </section>
 
-
 <!-- ══════════════════════════════════════════════════
      PROJECT 2
 ══════════════════════════════════════════════════ -->
@@ -751,13 +755,13 @@
   <!-- Challenge -->
   <div class="challenge-block">
     <h4>⚡ The Challenge</h4>
-    <p>Joseph K. Mungai required a <strong>professional, HIPAA-compliant SaaS web platform</strong> to serve the mental health, group home, day program, senior care, and autism support industries across the United States. The platform needed to digitise and streamline the complex documentation, billing, treatment planning, and compliance reporting requirements of <strong>Group Homes, Adult Residential Facilities (ARF), and Day Programs</strong> — replacing fragmented paper-based systems with a unified, easy-to-use cloud solution. The product also needed to be commercially viable with a scalable subscription model, clean marketing website, and a free trial/demo pathway.</p>
+    <p>Joseph K. Mungai required a professional, HIPAA-compliant SaaS web platform to serve the mental health, group home, day program, senior care, and autism support industries across the United States. The platform needed to digitise and streamline the complex documentation, billing, treatment planning, and compliance reporting requirements of Group Homes, Adult Residential Facilities (ARF), and Day Programs — replacing fragmented paper-based systems with a unified, easy-to-use cloud solution. The product also needed to be commercially viable with a scalable subscription model, clean marketing website, and a free trial/demo pathway.</p>
   </div>
 
   <!-- Solution -->
   <div class="solution-block">
     <h4>✅ Our Approach &amp; Solution</h4>
-    <p>We delivered a <strong>custom-built cloud SaaS platform</strong> with a marketing-forward public website and a fully functional application backend. The public site — built on a <strong>custom WordPress theme</strong> — communicates the product's value clearly with service pages, sample reports, demo scheduling, and testimonials. The core SaaS application was developed with a <strong>PHP/MySQL backend</strong>, supporting HIPAA-compliant data handling, encrypted storage, role-based access control, and a cloud-hosted multi-tenant architecture. Key integrations included <strong>QuickBooks export</strong>, automated medication reminders, state-required report generation, and an unlimited cloud storage layer — all accessible from any internet-connected device.</p>
+    <p>We delivered a custom-built cloud SaaS platform with a marketing-forward public website and a fully functional application backend. The public site — built on a custom WordPress theme — communicates the product's value clearly with service pages, sample reports, demo scheduling, and testimonials. The core SaaS application was developed with a PHP/MySQL backend, supporting HIPAA-compliant data handling, encrypted storage, role-based access control, and a cloud-hosted multi-tenant architecture. Key integrations included QuickBooks export, automated medication reminders, state-required report generation, and an unlimited cloud storage layer — all accessible from any internet-connected device.</p>
   </div>
 
   <!-- Tech Stack Table -->
@@ -773,7 +777,6 @@
         </tr>
       </thead>
       <tbody>
-        <!-- FRONTEND / WEBSITE -->
         <tr>
           <td>CMS / Website</td>
           <td><span class="tag">WordPress 6.x</span></td>
@@ -798,7 +801,6 @@
           <td>Demo requests, training scheduling, lead capture</td>
           <td><span class="tag teal-tag">Frontend</span></td>
         </tr>
-        <!-- BACKEND / APP -->
         <tr>
           <td>App Backend</td>
           <td><span class="tag">PHP</span></td>
@@ -823,7 +825,6 @@
           <td>Accounting export, mileage billing, activity-based invoice generation</td>
           <td><span class="tag amber-tag">Backend</span></td>
         </tr>
-        <!-- DATABASE & INFRA -->
         <tr>
           <td>Primary Database</td>
           <td><span class="tag">MySQL</span></td>
@@ -992,13 +993,13 @@
   <!-- Challenge -->
   <div class="challenge-block">
     <h4>⚡ The Challenge</h4>
-    <p>Fidel, founder of <strong>nomonday.mx</strong>, required a professional bilingual eCommerce and experience booking platform to market and sell <strong>premium fishing day trips across Mexico and LATAM</strong> — spanning fly fishing, bass fishing, and offshore expeditions at destinations including Cancún, Xcalak, Campeche, Mazatlán, Lake El Salto, Lake Chapala, and more. The platform needed to handle complex booking logic (partial deposits, cancellation policies), multiple trip categories, branded merchandise, gift cards, raffles, and seamless customer communication — all while building an SEO-optimised online presence in two languages to attract international anglers and local enthusiasts alike. The client was identified and onboarded entirely through <strong>proactive outreach pipeline management</strong>, demonstrating our ability to generate business from zero prior contact.</p>
+    <p>Fidel, founder of nomonday.mx, required a professional bilingual eCommerce and experience booking platform to market and sell premium fishing day trips across Mexico and LATAM — spanning fly fishing, bass fishing, and offshore expeditions at destinations including Cancún, Xcalak, Campeche, Mazatlán, Lake El Salto, Lake Chapala, and more. The platform needed to handle complex booking logic (partial deposits, cancellation policies), multiple trip categories, branded merchandise, gift cards, raffles, and seamless customer communication — all while building an SEO-optimised online presence in two languages to attract international anglers and local enthusiasts alike. The client was identified and onboarded entirely through proactive outreach pipeline management, demonstrating our ability to generate business from zero prior contact.</p>
   </div>
 
   <!-- Solution -->
   <div class="solution-block">
     <h4>✅ Our Approach &amp; Solution</h4>
-    <p>We built a fully featured <strong>WooCommerce-powered store</strong> on WordPress with a custom Elementor-designed theme that reflects the brand's adventurous, outdoors identity. The platform supports <strong>multiple product types</strong> — bookable day trips with per-day pricing, branded merchandise caps, digital gift cards ($250–$1,512 USD), and raffle products — all under one roof. We integrated <strong>Stripe and PayPal</strong> for secure checkout, a 50% deposit booking model with free cancellation terms, and a <strong>WhatsApp Business</strong> channel for real-time customer support. A bilingual (EN/ES) architecture was implemented to serve both international tourists and the Mexican domestic market. Email marketing via Monster Campaigns, Facebook Pixel for ad conversion tracking, countdown promotional banners, and a wishlist system were also delivered, giving the client a complete go-to-market toolkit.</p>
+    <p>We built a fully featured WooCommerce-powered store on WordPress with a custom Elementor-designed theme that reflects the brand's adventurous, outdoors identity. The platform supports multiple product types — bookable day trips with per-day pricing, branded merchandise caps, digital gift cards ($250–$1,512 USD), and raffle products — all under one roof. We integrated Stripe and PayPal for secure checkout, a 50% deposit booking model with free cancellation terms, and a WhatsApp Business channel for real-time customer support. A bilingual (EN/ES) architecture was implemented to serve both international tourists and the Mexican domestic market. Email marketing via Monster Campaigns, Facebook Pixel for ad conversion tracking, countdown promotional banners, and a wishlist system were also delivered, giving the client a complete go-to-market toolkit.</p>
   </div>
 
   <!-- Tech Stack Table -->
@@ -1014,7 +1015,6 @@
         </tr>
       </thead>
       <tbody>
-        <!-- FRONTEND -->
         <tr>
           <td>CMS Platform</td>
           <td><span class="tag">WordPress</span></td>
@@ -1045,7 +1045,6 @@
           <td>Full bilingual site — English &amp; Spanish with URL-based language switching</td>
           <td><span class="tag teal-tag">Frontend</span></td>
         </tr>
-        <!-- ECOMMERCE -->
         <tr>
           <td>eCommerce Engine</td>
           <td><span class="tag">WooCommerce</span></td>
@@ -1070,14 +1069,12 @@
           <td>Save-for-later fishing trips, shareable wishlist pages</td>
           <td><span class="tag amber-tag">eCommerce</span></td>
         </tr>
-        <!-- PAYMENT -->
         <tr>
           <td>Payment Gateways</td>
           <td><span class="tag">Stripe</span> <span class="tag">PayPal</span></td>
           <td>Secure USD checkout, credit card processing, international payments</td>
           <td><span class="tag green-tag">Payments</span></td>
         </tr>
-        <!-- MARKETING & INTEGRATIONS -->
         <tr>
           <td>Customer Support</td>
           <td><span class="tag">WhatsApp Business API</span></td>
@@ -1201,11 +1198,8 @@
 
 <!-- ═══ FOOTER ═══ -->
 <footer>
-  <p style="margin-bottom:8px;">
-    <strong>Confidential — Prepared for Client Presentation</strong>
-  </p>
+  <p style="margin-bottom:8px;"><strong>Confidential — Prepared for Client Presentation</strong></p>
   <p>Projects delivered across multiple high-growth software frameworks — spanning Custom End-to-End Development, Infrastructure Engineering, and Dedicated Technical Support engagement models.</p>
-  
   <div class="footer-cta">
     For further details, demos, or a custom proposal — please reach out directly via email at <a href="mailto:rishpat1678@gmail.com">rishpat1678@gmail.com</a> or WhatsApp at <a href="https://wa.me/919899256945" target="_blank">+91-9899256945</a>.
   </div>
