@@ -1,10 +1,9 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Case Study Portfolio – Project Showcase</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght=300;400;500;600;700;800&family=Space+Grotesk:wght=400;500;600;700&display=swap" rel="stylesheet"/>
 <style>
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -212,75 +211,78 @@
     background: var(--border);
   }
 
-  /* ─── FIXED HIGH-VISIBILITY TECH STACK TABLE ─── */
+  /* ─── NEW LIGHT-THEMED HYPER-VISIBLE TABLE SYSTEM ─── */
   .table-wrap { 
     overflow-x: auto; 
     margin-bottom: 48px; 
-    border: 1px solid var(--border);
+    border: 1px solid #D2DCEB;
     border-radius: 12px;
-    background-color: var(--card-bg) !important; /* Forces background containment */
+    background-color: #FFFFFF !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
   }
   table {
     width: 100%; 
     border-collapse: collapse;
-    font-size: 13.5px;
-    background-color: var(--card-bg) !important; /* Locks background color */
+    font-size: 14px;
+    background-color: #FFFFFF !important;
   }
   thead tr {
-    background: rgba(26,111,219,0.16) !important;
+    background: #0F1D30 !important; /* Premium deep dark slate for headers */
   }
   thead th {
-    padding: 14px 18px;
+    padding: 16px 20px;
     text-align: left;
     font-size: 11px; font-weight: 700;
-    letter-spacing: 1.2px; text-transform: uppercase;
-    color: #4A9FFF !important; /* Sharper contrast header text */
-    border-bottom: 2px solid rgba(26,111,219,0.4);
+    letter-spacing: 1.5px; text-transform: uppercase;
+    color: #FFFFFF !important;
+    border-bottom: 2px solid #07111F;
   }
   tbody tr {
-    border-bottom: 1px solid var(--border);
-    background-color: var(--card-bg) !important;
+    border-bottom: 1px solid #E4EBF5 !important;
+    background-color: #FFFFFF !important;
   }
   tbody tr:nth-child(even) {
-    background-color: #0B1A2E !important; /* Subtle alternate dark color rows */
+    background-color: #F8FAFC !important; /* Soft zebra tint */
   }
   tbody tr:hover { 
-    background-color: #122844 !important; 
+    background-color: #EDF3FA !important; 
   }
   tbody td {
-    padding: 14px 18px;
-    color: #E2EAF4 !important; /* Much lighter text color for high dark-mode contrast */
+    padding: 15px 20px;
+    color: #1E293B !important; /* Dark charcoal text for 100% visibility */
     vertical-align: top;
+    line-height: 1.6;
   }
   tbody td:first-child { 
-    color: var(--white) !important; 
-    font-weight: 600; 
+    color: #0F1D30 !important; 
+    font-weight: 700; 
     width: 190px; 
   }
 
+  /* Clear High-Contrast Inline Badges */
   .tag {
     display: inline-block;
-    background: var(--tag-bg);
-    color: var(--blue-lt);
-    border: 1px solid rgba(26,111,219,0.35);
-    font-size: 11px; font-weight: 600;
-    padding: 3px 9px; border-radius: 6px;
+    background: #EAF2FC;
+    color: #1A6FDB;
+    border: 1px solid #B4D3FA;
+    font-size: 11px; font-weight: 700;
+    padding: 4px 10px; border-radius: 6px;
     margin: 2px 3px 2px 0;
   }
   .tag.teal-tag {
-    background: rgba(11,191,164,0.15);
-    color: var(--teal);
-    border-color: rgba(11,191,164,0.35);
+    background: #E6F9F6;
+    color: #088A76;
+    border-color: #A3EDE2;
   }
   .tag.amber-tag {
-    background: rgba(245,166,35,0.15);
-    color: var(--amber);
-    border-color: rgba(245,166,35,0.35);
+    background: #FEF6E9;
+    color: #B27104;
+    border-color: #FADCA5;
   }
   .tag.green-tag {
-    background: rgba(74,222,128,0.12);
-    color: #4ADE80;
-    border-color: rgba(74,222,128,0.3);
+    background: #EEFBF2;
+    color: #166534;
+    border-color: #BBF7D0;
   }
 
   /* ─── FEATURES GRID ─────────────────────────── */
@@ -671,7 +673,6 @@
     </div>
   </div>
 </section>
-
 
 <div class="divider-label" id="project2">
   <div class="dot" style="background:var(--amber); box-shadow:0 0 10px var(--amber);"></div>
@@ -1147,7 +1148,7 @@
   </p>
   <p>Projects delivered across Nethues Technologies Pvt. Ltd. and Webappmate (Fly On IT India Pvt. Ltd.) — spanning Custom Development, Staff Augmentation &amp; Dedicated Resource engagement models.</p>
   <p style="margin-top:12px; font-size:12px; color:#4A6080;">
-    For further details, demos, or a custom proposal — please reach out to our Business Development team.
+    For further details, demos, or a custom proposal — please reach out directly via email at rishpat1678@gmail.com or WhatsApp at +91-9899256945.
   </p>
 </footer>
 
