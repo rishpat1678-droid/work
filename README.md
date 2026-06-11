@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Case Study Portfolio – Project Showcase</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --navy:      #07111F;
+    --slate:     #122744;
+    --blue:      #1A6FDB;
+    --blue-lt:   #5CA4FA; /* Brightened for absolute clarity in PDF exports */
+    --amber:     #F5A623;
+    --teal:      #13D9BB; /* High-contrast text clarity teal */
+    --white:     #FFFFFF; /* Solid white for main text nodes */
+    --muted:     #B0C3DE; /* Lightened significantly to prevent readability dropouts */
+    --card-bg:   #0F233C;
+    --border:    rgba(255,255,255,0.12);
+    --tag-bg:    rgba(26,111,219,0.25);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--navy);
+    color: var(--white);
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ─── HERO ─────────────────────────────────── */
+  .hero {
+    position: relative;
+    padding: 80px 60px 70px;
+    background: linear-gradient(135deg, #07111F 0%, #102646 60%, #0A1E33 100%);
+    border-bottom: 1px solid var(--border);
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -120px; right: -120px;
+    width: 480px; height: 480px;
+    background: radial-gradient(circle, rgba(26,111,219,0.22) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-label {
+    display: inline-block;
+    background: var(--tag-bg);
+    color: var(--blue-lt);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 20px;
+    border: 1px solid rgba(26,111,219,0.4);
+    margin-bottom: 22px;
+  }
+  .hero h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(34px, 5vw, 54px);
+    font-weight: 700;
+    line-height: 1.15;
+    max-width: 700px;
+    margin-bottom: 20px;
+    color: var(--white);
+  }
+  .hero h1 span { color: var(--blue-lt); }
+  .hero p {
+    font-size: 16.5px;
+    color: var(--muted);
+    max-width: 600px;
+    margin-bottom: 40px;
+    font-weight: 500;
+  }
+  .hero-meta {
+    display: flex;
+    gap: 36px;
+    flex-wrap: wrap;
+  }
+  .hero-meta-item { display: flex; flex-direction: column; gap: 4px; }
+  .hero-meta-item .label {
+    font-size: 11px; font-weight: 700; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--blue-lt);
+  }
+  .hero-meta-item .value {
+    font-size: 15px; font-weight: 700; color: var(--white);
+  }
+
+  /* ─── TOC ───────────────────────────────────── */
+  .toc {
+    display: flex;
+    gap: 12px;
+    padding: 20px 60px;
+    background: var(--slate);
+    border-bottom: 1px solid var(--border);
+    flex-wrap: wrap;
+  }
+  .toc a {
+    color: var(--white);
+    text-decoration: none;
+    font-size: 13.5px;
+    font-weight: 600;
+    padding: 8px 18px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border);
+    transition: all .2s;
+  }
+  .toc a:hover { background: var(--tag-bg); color: var(--blue-lt); border-color: var(--blue); }
+
+  /* ─── SECTION WRAPPER ───────────────────────── */
+  .section { padding: 70px 60px; border-bottom: 1px solid var(--border); }
+  .section:last-child { border-bottom: none; }
+
+  /* ─── PROJECT HEADER ────────────────────────── */
+  .project-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    margin-bottom: 40px;
+  }
+  .project-number {
+    flex-shrink: 0;
+    width: 58px; height: 58px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, var(--blue), var(--blue-lt));
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 24px; font-weight: 700;
+    color: var(--white);
+    box-shadow: 0 8px 24px rgba(26,111,219,0.35);
+  }
+  .project-number.amber-icon {
+    background: linear-gradient(135deg, #D4831A, var(--amber));
+    box-shadow: 0 8px 24px rgba(245,166,35,0.35);
+  }
+  .project-title-block h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 30px; font-weight: 700; margin-bottom: 8px; color: var(--white);
+  }
+  .project-title-block .subtitle { color: var(--muted); font-size: 15px; font-weight: 500; margin-bottom: 10px; }
+
+  /* ─── OVERVIEW GRID ─────────────────────────── */
+  .overview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 48px;
+  }
+  .overview-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 22px 24px;
+  }
+  .overview-card .oc-label {
+    font-size: 11px; font-weight: 700; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--muted); margin-bottom: 8px;
+  }
+  .overview-card .oc-value {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 22px; font-weight: 700;
+  }
+  .overview-card .oc-value.green  { color: #4ADE80; }
+  .overview-card .oc-value.blue   { color: var(--blue-lt); }
+  .overview-card .oc-value.amber  { color: var(--amber); }
+  .overview-card .oc-value.teal   { color: var(--teal); }
+  .overview-card .oc-value.white  { color: var(--white); }
+
+  /* ─── CHALLENGE BLOCK ───────────────────────── */
+  .challenge-block {
+    background: var(--card-bg);
+    border-left: 4px solid var(--amber);
+    border-radius: 0 14px 14px 0;
+    padding: 24px 28px;
+    margin-bottom: 40px;
+    border-top: 1px solid var(--border);
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .challenge-block h4 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 14px; font-weight: 700; letter-spacing: 1px;
+    text-transform: uppercase; color: var(--amber); margin-bottom: 10px;
+  }
+  .challenge-block p { color: #E2EAF4; font-size: 15px; line-height: 1.75; font-weight: 400; }
+
+  .solution-block {
+    background: var(--card-bg);
+    border-left: 4px solid var(--teal);
+    border-radius: 0 14px 14px 0;
+    padding: 24px 28px;
+    margin-bottom: 48px;
+    border-top: 1px solid var(--border);
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .solution-block h4 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 14px; font-weight: 700; letter-spacing: 1px;
+    text-transform: uppercase; color: var(--teal); margin-bottom: 10px;
+  }
+  .solution-block p { color: #E2EAF4; font-size: 15px; line-height: 1.75; font-weight: 400; }
+
+  /* ─── SECTION TITLE ─────────────────────────── */
+  .sub-heading {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 20px; font-weight: 700;
+    margin-bottom: 24px;
+    display: flex; align-items: center; gap: 10px;
+    color: var(--white);
+  }
+  .sub-heading::after {
+    content: '';
+    flex: 1; height: 1px;
+    background: var(--border);
+  }
+
+  /* ─── TECH STACK TABLE ──────────────────────── */
+  .table-wrap { overflow-x: auto; margin-bottom: 48px; border: 1px solid var(--border); border-radius: 12px; }
+  table {
+    width: 100%; border-collapse: collapse;
+    font-size: 14px;
+  }
+  thead tr {
+    background: rgba(26,111,219,0.2);
+  }
+  thead th {
+    padding: 14px 18px;
+    text-align: left;
+    font-size: 12px; font-weight: 700;
+    letter-spacing: 1.2px; text-transform: uppercase;
+    color: var(--white);
+    border-bottom: 2px solid var(--blue);
+  }
+  tbody tr {
+    border-bottom: 1px solid var(--border);
+    background: rgba(14,35,60,0.4);
+  }
+  tbody tr:last-child { border-bottom: none; }
+  tbody td {
+    padding: 14px 18px;
+    color: #E2EAF4;
+    vertical-align: top;
+  }
+  tbody td:first-child { color: var(--white); font-weight: 600; width: 190px; background: rgba(255,255,255,0.02); }
+  
+  .tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.08);
+    color: var(--white);
+    border: 1px solid var(--border);
+    font-size: 12px; font-weight: 600;
+    padding: 4px 10px; border-radius: 6px;
+    margin: 3px 4px 3px 0;
+  }
+  .tag.teal-tag {
+    background: rgba(19,217,187,0.15);
+    color: var(--teal);
+    border-color: rgba(19,217,187,0.4);
+  }
+  .tag.amber-tag {
+    background: rgba(245,166,35,0.15);
+    color: var(--amber);
+    border-color: rgba(245,166,35,0.4);
+  }
+  .tag.green-tag {
+    background: rgba(74,222,128,0.15);
+    color: #4ADE80;
+    border-color: rgba(74,222,128,0.4);
+  }
+
+  /* ─── FEATURES GRID ─────────────────────────── */
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+    margin-bottom: 48px;
+  }
+  .feature-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 22px;
+  }
+  .feature-card .fc-icon {
+    font-size: 24px; margin-bottom: 12px;
+  }
+  .feature-card h5 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 15px; font-weight: 700; margin-bottom: 8px; color: var(--white);
+  }
+  .feature-card p {
+    font-size: 13.5px; color: var(--muted); line-height: 1.6; font-weight: 400;
+  }
+
+  /* ─── OUTCOME STRIP ─────────────────────────── */
+  .outcome-strip {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+    margin-top: 40px;
+  }
+  .outcome-item {
+    background: var(--card-bg);
+    padding: 26px 28px;
+    text-align: center;
+  }
+  .outcome-item .big {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 32px; font-weight: 700;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .outcome-item .desc {
+    font-size: 13px; color: var(--white); font-weight: 500; letter-spacing: 0.5px;
+  }
+
+  /* ─── DIVIDER ─────────────────────────── */
+  .divider-label {
+    display: flex; align-items: center;
+    gap: 16px; margin: 0; padding: 0 60px;
+    background: linear-gradient(90deg, var(--slate), var(--navy));
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    height: 56px;
+    font-size: 13px; font-weight: 700;
+    letter-spacing: 2px; text-transform: uppercase;
+    color: var(--blue-lt);
+  }
+  .divider-label .dot {
+    width: 10px; height: 10px; border-radius: 50%;
+    background: var(--blue-lt);
+    box-shadow: 0 0 10px var(--blue-lt);
+  }
+
+  /* ─── MODEL METADATA BADGES ─────────────────── */
+  .company-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(19,217,187,0.12);
+    border: 1px solid rgba(19,217,187,0.3);
+    color: var(--teal);
+    font-size: 12px; font-weight: 700;
+    padding: 5px 14px; border-radius: 20px;
+    margin-top: 8px; margin-right: 8px;
+  }
+  .acq-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(245,166,35,0.12);
+    border: 1px solid rgba(245,166,35,0.3);
+    color: var(--amber);
+    font-size: 12px; font-weight: 700;
+    padding: 5px 14px; border-radius: 20px;
+    margin-top: 8px; margin-right: 8px;
+  }
+  .acq-badge.green-acq {
+    background: rgba(74,222,128,0.12);
+    border-color: rgba(74,222,128,0.3);
+    color: #4ADE80;
+  }
+
+  /* ─── FOOTER ─────────────────────────── */
+  footer {
+    padding: 50px 60px;
+    background: var(--slate);
+    text-align: center;
+    color: var(--white);
+    font-size: 14px;
+    border-top: 3px solid var(--blue);
+  }
+  footer p { margin-bottom: 10px; line-height: 1.6; }
+  footer strong { color: var(--white); font-weight: 700; }
+  
+  .footer-cta {
+    margin-top: 22px;
+    font-size: 15px;
+    color: var(--white);
+    background: rgba(7, 17, 31, 0.6);
+    padding: 16px 28px;
+    border-radius: 10px;
+    display: inline-block;
+    border: 1px solid var(--blue);
+    font-weight: 500;
+  }
+  .footer-cta a {
+    color: #64B5FF;
+    text-decoration: underline;
+    font-weight: 700;
+  }
+
+  /* ─── RESPONSIVE & PDF PRINT RIGGING ─────────────────────── */
+  @media (max-width: 768px) {
+    .hero, .toc, .section, .divider-label, footer { padding-left: 24px; padding-right: 24px; }
+    .hero { padding-top: 52px; padding-bottom: 48px; }
+    .project-header { flex-direction: column; gap: 16px; }
+    .hero-meta { gap: 20px; }
+    .toc { padding-top: 14px; padding-bottom: 14px; }
+  }
+
+  @media print {
+    body { background: #07111F; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .toc { display: none; }
+    .divider-label { page-break-before: always; margin-top: 0; }
+    .table-wrap, .features-grid, .outcome-strip, .challenge-block, .solution-block { page-break-inside: avoid; }
+    tbody td:first-child { background: transparent !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+  <div class="hero-label">Project Portfolio · Case Studies</div>
+  <h1>Delivering <span>Enterprise-Grade</span><br>Digital Solutions</h1>
+  <p>A curated presentation of select client engagements — showcasing our ability to scale complex platforms, lead strategic technology decisions, and deliver measurable business outcomes.</p>
+  <div class="hero-meta">
+    <div class="hero-meta-item">
+      <span class="label">Projects Featured</span>
+      <span class="value">3 Case Studies</span>
+    </div>
+    <div class="hero-meta-item">
+      <span class="label">Combined Value</span>
+      <span class="value">£400K+ · $8K+ USD</span>
+    </div>
+    <div class="hero-meta-item">
+      <span class="label">Markets Served</span>
+      <span class="value">UK · USA · Mexico</span>
+    </div>
+    <div class="hero-meta-item">
+      <span class="label">Domains</span>
+      <span class="value">Social · HealthTech · eCommerce</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TOC ═══ -->
+<nav class="toc">
+  <a href="#project1">📌 Project 1 — Social Platform (Chris)</a>
+  <a href="#project2">📌 Project 2 — CareSoft SaaS (Joseph K. Mungai)</a>
+  <a href="#project3">📌 Project 3 — nomonday.mx (Fidel)</a>
+</nav>
+
+<!-- ══════════════════════════════════════════════════
+     PROJECT 1
+══════════════════════════════════════════════════ -->
+<div class="divider-label" id="project1">
+  <div class="dot"></div>
+  Case Study 01 &nbsp;·&nbsp; Social Networking Platform
+</div>
+
+<section class="section">
+  <!-- Header -->
+  <div class="project-header">
+    <div class="project-number">01</div>
+    <div class="project-title-block">
+      <h2>From Dating Site to Full-Scale Social Network</h2>
+      <div class="subtitle">Client: Chris &nbsp;·&nbsp; Market: United Kingdom &nbsp;·&nbsp; Platform: Web Application</div>
+      <span class="company-badge">🏢 Custom Development Model</span>
+    </div>
+  </div>
+
+  <!-- Metrics -->
+  <div class="overview-grid">
+    <div class="overview-card">
+      <div class="oc-label">Initial Quote</div>
+      <div class="oc-value blue">£20,000</div>
+    </div>
+    <div class="overview-card">
+      <div class="oc-label">Final Project Value</div>
+      <div class="oc-value green">£400,000+</div>
+    </div>
+    <div class="overview-card">
+      <div class="oc-label">Ongoing Retainer</div>
+      <div class="oc-value amber">£8,000 / mo</div>
+    </div>
+    <div class="overview-card">
+      <div class="oc-label">Dedicated Developers</div>
+      <div class="oc-value teal">2 × Full-Time</div>
+    </div>
+    <div class="overview-card">
+      <div class="oc-label">Project Type</div>
+      <div class="oc-value white">Social Platform</div>
+    </div>
+  </div>
+
+  <!-- Challenge -->
+  <div class="challenge-block">
+    <h4>⚡ The Challenge</h4>
+    <p>The client initially approached us with a straightforward brief — build a <strong>dating website</strong> using custom PHP, with an approximate budget of £20,000. However, as development progressed, the scope evolved significantly. The client began requesting additional social features, expanding the vision from a niche dating platform to a <strong>full-scale social networking site</strong> comparable to Facebook — complete with news feeds, user groups, real-time messaging, media sharing, and community-driven engagement tools. This required a critical technology pivot and a complete re-evaluation of the project architecture.</p>
+  </div>
+
+  <!-- Solution -->
+  <div class="solution-block">
+    <h4>✅ Our Approach &amp; Solution</h4>
+    <p>To accommodate the expanding scope while maintaining code quality, scalability, and long-term maintainability, we recommended migrating from custom PHP to the <strong>Laravel framework</strong> on the backend — providing robust MVC architecture, built-in authentication, and a rich ecosystem of packages. For the frontend, we transitioned to a <strong>React.js + Angular</strong> hybrid — React powering dynamic user-facing components and Angular handling the admin dashboard and structured data views. The client accepted our proposal and we proceeded with a phased delivery model. Upon launch, we also successfully upsold a <strong>dedicated developer retainer</strong> of 2 full-time developers at £4,000 each per month, ensuring continuous feature development and platform support.</p>
+  </div>
+
+  <!-- Tech Stack Table -->
+  <div class="sub-heading">Technology Stack</div>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Layer</th>
+          <th>Technology</th>
+          <th>Purpose / Role</th>
+          <th>Category</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- FRONTEND -->
+        <tr>
+          <td>Frontend Framework</td>
+          <td><span class="tag">React.js</span></td>
+          <td>Dynamic UI components, news feed, dating cards, user profiles</td>
+          <td><span class="tag teal-tag">Frontend</span></td>
+        </tr>
+        <tr>
+          <td>Admin Dashboard</td>
+          <td><span class="tag">Angular</span></td>
+          <td>Admin panel, content moderation, analytics interface</td>
+          <td><span class="tag teal-tag">Frontend</span></td>
+        </tr>
+        <tr>
+          <td>Styling</td>
+          <td><span class="tag">SCSS</span> <span class="tag">Tailwind CSS</span> <span class="tag">Bootstrap</span></td>
+          <td>Responsive layouts, component theming, mobile-first design</td>
+          <td><span class="tag teal-tag">Frontend</span></td>
+        </tr>
+        <tr>
+          <td>State Management</td>
+          <td><span class="tag">Redux</span> <span class="tag">Context API</span></td>
+          <td>Global app state, session handling, real-time data sync</td>
+          <td><span class="tag teal-tag">Frontend</span></td>
+        </tr>
+        <tr>
+          <td>Real-Time (Client)</td>
+          <td><span class="tag">Socket.io Client</span> <span class="tag">WebSockets</span></td>
+          <td>Live chat, notifications, feed updates, typing indicators</td>
+          <td><span class="tag teal-tag">Frontend</span></td>
+        </tr>
+        <!-- BACKEND -->
+        <tr>
+          <td>Backend Framework</td>
+          <td><span class="tag">Laravel (PHP)</span></td>
+          <td>Core application logic, routing, authentication, ORM</td>
+          <td><span class="tag amber-tag">Backend</span></td>
+        </tr>
+        <tr>
+          <td>Initial Backend</td>
+          <td><span class="tag">Custom PHP</span></td>
+          <td>Initial prototype and early-stage development</td>
+          <td><span class="tag amber-tag">Backend</span></td>
+        </tr>
+        <tr>
+          <td>Real-Time Server</td>
+          <td><span class="tag">Node.js</span> <span class="tag">Socket.io</span></td>
+          <td>Pub/sub messaging, live notifications, presence tracking</td>
+          <td><span class="tag amber-tag">Backend</span></td>
+        </tr>
+        <tr>
+          <td>REST API</td>
+          <td><span class="tag">Laravel Sanctum</span> <span class="tag">JWT Auth</span></td>
+          <td>Secure API layer for frontend–backend communication</td>
+          <td><span class="tag amber-tag">Backend</span></td>
+        </tr>
+        <!-- DATABASE & INFRA -->
+        <tr>
+          <td>Primary Database</td>
+          <td><span class="tag">MySQL</span></td>
+          <td>User data, relationships, posts, messages, notifications</td>
+          <td><span class="tag green-tag">Database</span></td>
+        </tr>
+        <tr>
+          <td>Cache / Sessions</td>
+          <td><span class="tag">Redis</span></td>
+          <td>Session management, feed caching, rate limiting</td>
+          <td><span class="tag green-tag">Database</span></td>
+        </tr>
+        <tr>
+          <td>Media Storage</td>
+          <td><span class="tag">AWS S3</span></td>
+          <td>Profile photos, videos, post media, document storage</td>
+          <td><span class="tag">Infrastructure</span></td>
+        </tr>
+        <tr>
+          <td>Push Notifications</td>
+          <td><span class="tag">Firebase FCM</span></td>
+          <td>Real-time push alerts for mobile &amp; web</td>
+          <td><span class="tag">Infrastructure</span></td>
+        </tr>
+        <tr>
+          <td>Deployment</td>
+          <td><span class="tag">AWS EC2</span> <span class="tag">Nginx</span> <span class="tag">Laravel Forge</span></td>
+          <td>Scalable cloud hosting, server configuration &amp; CI/CD</td>
+          <td><span class="tag">Infrastructure</span></td>
+        </tr>
+        <tr>
+          <td>Search</td>
+          <td><span class="tag">Elasticsearch</span></td>
+          <td>User discovery, post search, location-based filtering</td>
+          <td><span class="tag">Infrastructure</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Features -->
+  <div class="sub-heading">Features &amp; Functionalities Delivered</div>
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="fc-icon">💘</div>
+      <h5>Smart Matchmaking Engine</h5>
+      <p>Algorithm-driven compatibility matching based on profile preferences, interests, and location radius with swipe/like interaction.</p>
+    </div>
+    <div class="feature-card">
+      <div class="fc-icon">📰</div>
+      <h5>Social News Feed</h5>
+      <p>Real-time activity feed showing posts, likes, comments, shares, and events from connections — similar to Facebook's core feed.</p>
+    </div>
+    <div class="feature-card">
+      <div class="fc-icon">💬</div>
+      <h5>Real-Time Messaging</h5>
+      <p>End-to-end encrypted private chat with typing indicators, read receipts, media sharing, and message reactions.</p>
+    </div>
+    <div class="feature-card">
+      <div class="fc-icon">👤</div>
+      <h5>Rich User Profiles</h5>
+      <p>Fully customizable profiles with cover photos, bio, interests, photo albums, timelines, and privacy settings.</p>
+    </div>
+    <div class="feature-card">
+      <div class="fc-icon">👥</div>
+      <h5>Groups &amp; Communities</h5>
+      <p>Public and private groups with admin controls, member management, group posts, polls, and shared media galleries.</p>
+    </div>
+    <div class="feature-card">
+      <div class="fc-icon">🔔</div>
+      <h5>Notification Centre</h5>
+      <p>Real-time in-app and push notifications for matches, messages, likes, comments, mentions, and friend requests.</p>
+    </div>
+    <div class="feature-card">
+      <div class="fc-icon">📸</div>
+      <h5>Photo &amp; Video Sharing</h5>
+      <p>Multi-photo upload, video posts, stories (ephemeral content), and cloud-stored media with privacy controls.</p>
+    </div>
+    <div class="feature-card">
+      <div class="fc-icon">📅</div>
+      <h5>Events Management</h5>
+      <p>Create and discover local and virtual events, RSVP management, event reminders, and attendee interactions.</p>
+    </div>
+    <div class="feature-card">
+      <div class="fc-icon">🔍</div>
+      <h5>Advanced Search &amp; Discovery</h5>
+      <p>Elasticsearch-powered people, groups, and content discovery with location filtering, age range, and interest tags.</p>
+    </div>
+    <div class="feature-card">
+      <div class="fc-icon">🛡️</div>
+      <h5>Content Moderation</h5>
+      <p>AI-assisted flagging, admin moderation queue, user reporting, automated spam detection, and profile verification.</p>
+    </div>
+    <div class="feature-card">
+      <div class="fc-icon">📊</div>
+      <h5>Admin Analytics Dashboard</h5>
+      <p>Real-time platform metrics — user growth, engagement rates, content volume, revenue tracking, and geographic heatmaps.</p>
+    </div>
+    <div class="feature-card">
+      <div class="fc-icon">💳</div>
+      <h5>Subscription &amp; Monetisation</h5>
+      <p>Tiered premium plans, in-app purchase credits, profile boosts, and Stripe-integrated billing with subscription management.</p>
+    </div>
+  </div>
+
+  <!-- Outcomes -->
+  <div class="sub-heading">Project Outcomes</div>
+  <div class="outcome-strip">
+    <div class="outcome-item">
+      <div class="big" style="color:#4ADE80;">£400K+</div>
+      <div class="desc">Total Project Value Delivered</div>
+    </div>
+    <div class="outcome-item">
+      <div class="big" style="color:var(--blue-lt);">20×</div>
+      <div class="desc">Revenue Growth vs. Initial Quote</div>
+    </div>
+    <div class="outcome-item">
+      <div class="big" style="color:var(--amber);">£8K/mo</div>
+      <div class="desc">Ongoing Dedicated Developer Retainer</div>
+    </div>
+    <div class="outcome-item">
+      <div class="big" style="color:var(--teal);">2</div>
+      <div class="desc">Full-Time Developers Placed</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════
+     PROJECT 2
+══════════════════════════════════════════════════ -->
+<div class="divider-label" id="project2">
+  <div class="dot" style="background:var(--amber); box-shadow:0 0 10px var(--amber);"></div>
+  Case Study 02 &nbsp;·&nbsp; HealthTech SaaS Platform
+</div>
+
+<section class="section">
+  <!-- Header -->
+  <div class="project-header">
+    <div class="project-number amber-icon">02</div>
+    <div class="project-title-block">
+      <h2>CareSoft — Special Needs &amp; Group Home Management SaaS</h2>
+      <div class="subtitle">Client: Joseph K. Mungai &nbsp;·&nbsp; Website: caresoft.us &nbsp;·&nbsp; Market: United States &nbsp;·&nbsp; Platform: Web SaaS</div>
+      <span class="company-badge">🏢 Managed Cloud Project</span>
+      <span class="acq-badge">📲 Scope Sourced via Direct Channel</span>
+    </div>
+  </div>
+
+  <!-- Metrics -->
+  <div class="overview-grid">
+    <div class="overview-card">
+      <div class="oc-label">Project Quote</div>
+      <div class="oc-value amber">$8,000 USD</div>
+    </div>
+    <div class="overview-card">
+      <div class="oc-label">Industry</div>
+      <div class="oc-value white">HealthTech / Social Care</div>
+    </div>
+    <div class="overview-card">
+      <div class="oc-label">Platform Model</div>
+      <div class="oc-value blue">SaaS / Subscription</div>
+    </div>
+    <div class="overview-card">
+      <div class="oc-label">Compliance</div>
+      <div class="oc-value green">HIPAA Compliant</div>
+    </div>
+    <div class="overview-card">
+      <div class="oc-label">Pricing Model</div>
+      <div class="oc-value teal">$14.95 / User / Month</div>
+    </div>
+  </div>
+
+  <!-- Challenge -->
+  <div class="challenge-block">
+    <h4>⚡ The Challenge</h4>
+    <p>Joseph K. Mungai required a <strong>professional, HIPAA-compliant SaaS web platform</strong> to serve the mental health, group home, day program, senior care, and autism support industries across the United States. The platform needed to digitise and streamline the complex documentation, billing, treatment planning, and compliance reporting requirements of <strong>Group Homes, Adult Residential Facilities (ARF), and Day Programs</strong> — replacing fragmented paper-based systems with a unified, easy-to-use cloud solution. The product also needed to be commercially viable with a scalable subscription model, clean marketing website, and a free trial/demo pathway.</p>
+  </div>
+
+  <!-- Solution -->
+  <div class="solution-block">
+    <h4>✅ Our Approach &amp; Solution</h4>
+    <p>We delivered a <strong>custom-built cloud SaaS platform</strong> with a marketing-forward public website and a fully functional application backend. The public site — built on a <strong>custom WordPress theme</strong> — communicates the product's value clearly with service pages, sample reports, demo scheduling, and testimonials. The core SaaS application was developed with a <strong>PHP/MySQL backend</strong>, supporting HIPAA-compliant data handling, encrypted storage, role-based access control, and a cloud-hosted multi-tenant architecture. Key integrations included <strong>QuickBooks export</strong>, automated medication reminders, state-required report generation, and an unlimited cloud storage layer — all accessible from any internet-connected device.</p>
+  </div>
+
+  <!-- Tech Stack Table -->
+  <div class="sub-heading">Technology Stack</div>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Layer</th>
+          <th>Technology</th>
+          <th>Purpose / Role</th>
+          <th>Category</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- FRONTEND / WEBSITE -->
+        <tr>
+          <td>CMS / Website</td>
+          <td><span class="tag">WordPress 6.x</span></td>
+          <td>Marketing website, blog, landing pages, contact forms, demo scheduling</td>
+          <td><span class="tag teal-tag">Frontend</span></td>
+        </tr>
+        <tr>
+          <td>Frontend Theme</td>
+          <td><span class="tag">Custom PHP Theme</span> <span class="tag">HTML5</span> <span class="tag">CSS3</span></td>
+          <td>Branded UI, responsive layout, service pages, slider components</td>
+          <td><span class="tag teal-tag">Frontend</span></td>
+        </tr>
+        <tr>
+          <td>Interactivity</td>
+          <td><span class="tag">jQuery</span> <span class="tag">JavaScript (ES6)</span></td>
+          <td>Form interactions, lightbox, UI animations, demo request modals</td>
+          <td><span class="tag teal-tag">Frontend</span></td>
+        </tr>
+        <tr>
+          <td>Forms &amp; Scheduling</td>
+          <td><span class="tag">Contact Form 7</span> <span class="tag">Calendly</span></td>
+          <td>Demo requests, training scheduling, lead capture</td>
+          <td><span class="tag teal-tag">Frontend</span></td>
+        </tr>
+        <!-- BACKEND / APP -->
+        <tr>
+          <td>App Backend</td>
+          <td><span class="tag">PHP</span></td>
+          <td>Core SaaS application logic, user management, data processing</td>
+          <td><span class="tag amber-tag">Backend</span></td>
+        </tr>
+        <tr>
+          <td>Authentication</td>
+          <td><span class="tag">Role-Based Access Control</span></td>
+          <td>Admin, staff, and agency-level permissions with secure login</td>
+          <td><span class="tag amber-tag">Backend</span></td>
+        </tr>
+        <tr>
+          <td>Reporting Engine</td>
+          <td><span class="tag">Custom PHP Reports</span> <span class="tag">PDF Generator</span></td>
+          <td>ISP/ITP/IEP/IPP report generation, billing reports, state submissions</td>
+          <td><span class="tag amber-tag">Backend</span></td>
+        </tr>
+        <tr>
+          <td>Billing Integration</td>
+          <td><span class="tag">QuickBooks API</span></td>
+          <td>Accounting export, mileage billing, activity-based invoice generation</td>
+          <td><span class="tag amber-tag">Backend</span></td>
+        </tr>
+        <!-- DATABASE & INFRA -->
+        <tr>
+          <td>Primary Database</td>
+          <td><span class="tag">MySQL</span></td>
+          <td>Individual records, treatment plans, medications, staff data, billing</td>
+          <td><span class="tag green-tag">Database</span></td>
+        </tr>
+        <tr>
+          <td>File Storage</td>
+          <td><span class="tag">Cloud Storage (Unlimited)</span></td>
+          <td>HIPAA-compliant document storage — client files, staff documents, images</td>
+          <td><span class="tag">Infrastructure</span></td>
+        </tr>
+        <tr>
+          <td>Compliance</td>
+          <td><span class="tag">HIPAA Framework</span> <span class="tag">SSL/TLS Encryption</span></td>
+          <td>Data encryption at rest &amp; in transit, audit logging, access control</td>
+          <td><span class="tag">Infrastructure</span></td>
+        </tr>
+        <tr>
+          <td>Hosting</td>
+          <td><span class="tag">Cloud Hosting</span> <span class="tag">CDN</span></td>
+          <td>Multi-device access, 99.9% uptime, scalable multi-tenant SaaS delivery</td>
+          <td><span class="tag">Infrastructure</span></td>
+        </tr>
+        <tr>
+          <td>Analytics</td>
+          <td><span class="tag">Facebook Pixel</span> <span class="tag">Google Analytics</span></td>
+          <td>Marketing conversion tracking, demo request funnels, user behaviour</td>
+          <td><span class="tag">Marketing</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Features -->
+  <div class="sub-heading">Features &amp; Functionalities Delivered</div>
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="fc-icon">🔒</div>
+      <h5>HIPAA-Compliant Data Management</h5>
+      <p>Fully encrypted data storage and transmission, audit trails, and access logging meeting US federal HIPAA standards for health information.</p>
+    </div>
+    <div class="feature-card">
+      <div class="fc-icon">📈</div>
+      <h5>Progress Tracking &amp; Graphing</h5>
+      <p>Track individual progress notes, behavioural interventions, and goals — with visual graphs and trend reports for families and state agencies.</p>
+    </div>
+    <div class="feature-card">
+      <div class="fc-icon">🧾</div>
+      <h5>Automated Service Billing</h5>
+      <p>Auto-generate billing reports including activities, mileage, and hours per individual. Supports export to QuickBooks for seamless accounting.</p>
+    </div>
+    <div class="feature-card">
+      <div class="fc-icon">💊</div>
+      <h5>Medication Reminders &amp; Alerts</h5>
+      <p>Automated notifications reminding staff of medications due for each individual, with administration logs and missed-dose flagging.</p>
+    </div>
+    <div class="feature-card">
+      <div class="fc-icon">📋</div>
+      <h5>State-Required Report Generation</h5>
+      <p>One-click generation of fully customisable, state-compliant reports printable or emailable directly from the platform.</p>
+    </div>
+    <div class="feature-card">
+      <div class="fc-icon">📄</div>
+      <h5>Customisable Treatment Plans</h5>
+      <p>Build and manage ISP, IPP, ITP, and IEP treatment plans tailored to each individual — instantly printable or email-ready.</p>
+    </div>
+    <div class="feature-card">
+      <div class="fc-icon">☁️</div>
+      <h5>Unlimited Cloud Document Storage</h5>
+      <p>Upload and securely store all client and staff documents, files, and images in unlimited cloud storage — accessible from any device.</p>
+    </div>
+    <div class="feature-card">
+      <div class="fc-icon">✅</div>
+      <h5>Staff Verification &amp; Accountability</h5>
+      <p>Verify staff are entering data on time, correctly logging individual pickups, and accurately recording billable mileage.</p>
+    </div>
+    <div class="feature-card">
+      <div class="fc-icon">📱</div>
+      <h5>Multi-Device Cloud Access</h5>
+      <p>Fully responsive — works seamlessly on phones, tablets, and computers. No app install needed; accessible from any internet browser.</p>
+    </div>
+    <div class="feature-card">
+      <div class="fc-icon">🎓</div>
+      <h5>Free Training &amp; Onboarding</h5>
+      <p>Integrated training portal with free training sessions for all staff and administrators via Calendly-powered scheduling.</p>
+    </div>
+    <div class="feature-card">
+      <div class="fc-icon">🏠</div>
+      <h5>Multi-Programme Support</h5>
+      <p>Purpose-built workflows for Group Homes, Day Programs, Autism care, TBI (Traumatic Brain Injury), and Senior Living facilities.</p>
+    </div>
+    <div class="feature-card">
+      <div class="fc-icon">🚀</div>
+      <h5>Free Trial &amp; SaaS Subscription Model</h5>
+      <p>No setup fees, no hidden charges. Clients subscribe at $14.95/user/month with a free trial and cancel-anytime flexibility.</p>
+    </div>
+  </div>
+
+  <!-- Outcomes -->
+  <div class="sub-heading">Project Outcomes</div>
+  <div class="outcome-strip">
+    <div class="outcome-item">
+      <div class="big" style="color:var(--amber);">$8,000</div>
+      <div class="desc">Project Delivery Value (USD)</div>
+    </div>
+    <div class="outcome-item">
+      <div class="big" style="color:var(--teal);">HIPAA</div>
+      <div class="desc">Fully Compliant Platform</div>
+    </div>
+    <div class="outcome-item">
+      <div class="big" style="color:#4ADE80;">$14.95</div>
+      <div class="desc">Per User / Month — Recurring Revenue</div>
+    </div>
+    <div class="outcome-item">
+      <div class="big" style="color:var(--blue-lt);">5★</div>
+      <div class="desc">Client-Verified Testimonials</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     PROJECT 3
+══════════════════════════════════════════════════ -->
+<div class="divider-label" id="project3">
+  <div class="dot" style="background:#4ADE80; box-shadow:0 0 10px #4ADE80;"></div>
+  Case Study 03 &nbsp;·&nbsp; eCommerce &amp; Experience Booking Platform
+</div>
+
+<section class="section">
+  <!-- Header -->
+  <div class="project-header">
+    <div class="project-number" style="background: linear-gradient(135deg, #16A34A, #4ADE80); box-shadow: 0 8px 24px rgba(74,222,128,0.3);">03</div>
+    <div class="project-title-block">
+      <h2>nomonday.mx — Fishing Tourism &amp; eCommerce Platform</h2>
+      <div class="subtitle">Client: Fidel &nbsp;·&nbsp; Website: store.nomonday.mx &nbsp;·&nbsp; Market: Mexico &amp; LATAM &nbsp;·&nbsp; Platform: WooCommerce</div>
+      <span class="company-badge">🏢 Product Engineering Framework</span>
+      <span class="acq-badge green-acq">📞 Strategic Acquisition Model</span>
+    </div>
+  </div>
+
+  <!-- Metrics -->
+  <div class="overview-grid">
+    <div class="overview-card">
+      <div class="oc-label">Industry</div>
+      <div class="oc-value green">Fishing Tourism</div>
+    </div>
+    <div class="overview-card">
+      <div class="oc-label">Platform Type</div>
+      <div class="oc-value blue">eCommerce + Booking</div>
+    </div>
+    <div class="overview-card">
+      <div class="oc-label">Market Region</div>
+      <div class="oc-value white">Mexico &amp; LATAM</div>
+    </div>
+    <div class="overview-card">
+      <div class="oc-label">Languages</div>
+      <div class="oc-value teal">English + Spanish</div>
+    </div>
+    <div class="overview-card">
+      <div class="oc-label">Trip Range</div>
+      <div class="oc-value amber">$220 – $1,512 USD</div>
+    </div>
+  </div>
+
+  <!-- Challenge -->
+  <div class="challenge-block">
+    <h4>⚡ The Challenge</h4>
+    <p>Fidel, founder of <strong>nomonday.mx</strong>, required a professional bilingual eCommerce and experience booking platform to market and sell <strong>premium fishing day trips across Mexico and LATAM</strong> — spanning fly fishing, bass fishing, and offshore expeditions at destinations including Cancún, Xcalak, Campeche, Mazatlán, Lake El Salto, Lake Chapala, and more. The platform needed to handle complex booking logic (partial deposits, cancellation policies), multiple trip categories, branded merchandise, gift cards, raffles, and seamless customer communication — all while building an SEO-optimised online presence in two languages to attract international anglers and local enthusiasts alike. The client was identified and onboarded entirely through <strong>proactive outreach pipeline management</strong>, demonstrating our ability to generate business from zero prior contact.</p>
+  </div>
+
+  <!-- Solution -->
+  <div class="solution-block">
+    <h4>✅ Our Approach &amp; Solution</h4>
+    <p>We built a fully featured <strong>WooCommerce-powered store</strong> on WordPress with a custom Elementor-designed theme that reflects the brand's adventurous, outdoors identity. The platform supports <strong>multiple product types</strong> — bookable day trips with per-day pricing, branded merchandise caps, digital gift cards ($250–$1,512 USD), and raffle products — all under one roof. We integrated <strong>Stripe and PayPal</strong> for secure checkout, a 50% deposit booking model with free cancellation terms, and a <strong>WhatsApp Business</strong> channel for real-time customer support. A bilingual (EN/ES) architecture was implemented to serve both international tourists and the Mexican domestic market. Email marketing via Monster Campaigns, Facebook Pixel for ad conversion tracking, countdown promotional banners, and a wishlist system were also delivered, giving the client a complete go-to-market toolkit.</p>
+  </div>
+
+  <!-- Tech Stack Table -->
+  <div class="sub-heading">Technology Stack</div>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Layer</th>
+          <th>Technology</th>
+          <th>Purpose / Role</th>
+          <th>Category</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- FRONTEND -->
+        <tr>
+          <td>CMS Platform</td>
+          <td><span class="tag">WordPress</span></td>
+          <td>Content management, pages, blog, product listings, bilingual site structure</td>
+          <td><span class="tag teal-tag">Frontend</span></td>
+        </tr>
+        <tr>
+          <td>Page Builder</td>
+          <td><span class="tag">Elementor 4.1</span></td>
+          <td>Visual layout, hero sections, product grids, promotional banners, landing pages</td>
+          <td><span class="tag teal-tag">Frontend</span></td>
+        </tr>
+        <tr>
+          <td>Theme</td>
+          <td><span class="tag">TheGem (Custom)</span></td>
+          <td>Branded store design, product display templates, responsive layout system</td>
+          <td><span class="tag teal-tag">Frontend</span></td>
+        </tr>
+        <tr>
+          <td>Interactivity</td>
+          <td><span class="tag">JavaScript</span> <span class="tag">jQuery</span></td>
+          <td>Countdown timers, cart interactions, wishlist toggle, scroll animations</td>
+          <td><span class="tag teal-tag">Frontend</span></td>
+        </tr>
+        <tr>
+          <td>Multilingual</td>
+          <td><span class="tag">WPML / Polylang</span></td>
+          <td>Full bilingual site — English &amp; Spanish with URL-based language switching</td>
+          <td><span class="tag teal-tag">Frontend</span></td>
+        </tr>
+        <!-- ECOMMERCE -->
+        <tr>
+          <td>eCommerce Engine</td>
+          <td><span class="tag">WooCommerce</span></td>
+          <td>Product catalog, cart, checkout, order management, variable pricing</td>
+          <td><span class="tag amber-tag">eCommerce</span></td>
+        </tr>
+        <tr>
+          <td>Booking System</td>
+          <td><span class="tag">WooCommerce Bookings</span></td>
+          <td>Day trip reservations with 50% deposit model, availability management, per-day pricing</td>
+          <td><span class="tag amber-tag">eCommerce</span></td>
+        </tr>
+        <tr>
+          <td>Gift Cards</td>
+          <td><span class="tag">WooCommerce Gift Cards</span></td>
+          <td>Digital gift card product ($250–$1,512), redeemable at checkout</td>
+          <td><span class="tag amber-tag">eCommerce</span></td>
+        </tr>
+        <tr>
+          <td>Wishlist</td>
+          <td><span class="tag">YITH Wishlist</span></td>
+          <td>Save-for-later fishing trips, shareable wishlist pages</td>
+          <td><span class="tag amber-tag">eCommerce</span></td>
+        </tr>
+        <!-- PAYMENT -->
+        <tr>
+          <td>Payment Gateways</td>
+          <td><span class="tag">Stripe</span> <span class="tag">PayPal</span></td>
+          <td>Secure USD checkout, credit card processing, international payments</td>
+          <td><span class="tag green-tag">Payments</span></td>
+        </tr>
+        <!-- MARKETING & INTEGRATIONS -->
+        <tr>
+          <td>Customer Support</td>
+          <td><span class="tag">WhatsApp Business API</span></td>
+          <td>Real-time live chat button, direct inquiry, booking support via WhatsApp</td>
+          <td><span class="tag">Integration</span></td>
+        </tr>
+        <tr>
+          <td>Email Marketing</td>
+          <td><span class="tag">Monster Campaigns</span></td>
+          <td>Discount popup, email capture, 5% first-order coupon, fishing season newsletters</td>
+          <td><span class="tag">Marketing</span></td>
+        </tr>
+        <tr>
+          <td>Ad Tracking</td>
+          <td><span class="tag">Facebook Pixel</span> <span class="tag">Google Analytics</span></td>
+          <td>Conversion tracking, retargeting audiences, booking funnel analysis</td>
+          <td><span class="tag">Marketing</span></td>
+        </tr>
+        <tr>
+          <td>SEO</td>
+          <td><span class="tag">Yoast SEO</span> <span class="tag">Google Search Console</span></td>
+          <td>On-page SEO, XML sitemaps, meta optimisation for fishing tourism keywords</td>
+          <td><span class="tag">Marketing</span></td>
+        </tr>
+        <tr>
+          <td>Hosting &amp; CDN</td>
+          <td><span class="tag">Cloud Hosting</span> <span class="tag">CDN</span></td>
+          <td>Fast load times for Mexican &amp; international users, SSL, uptime guarantee</td>
+          <td><span class="tag">Infrastructure</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Features -->
+  <div class="sub-heading">Features &amp; Functionalities Delivered</div>
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="fc-icon">🎣</div>
+      <h5>Multi-Category Fishing Trip Catalog</h5>
+      <p>Organised product catalog with Fly Fishing, Bass Day Trips, and Offshore categories — 15+ destinations across Mexico from $220 to $1,512 USD per day.</p>
+    </div>
+    <div class="feature-card">
+      <div class="fc-icon">📅</div>
+      <h5>Online Booking with Deposit System</h5>
+      <p>Customers book trips with just 50% of the total price upfront. Automated confirmation, cancellation management with 5-day free cancellation policy.</p>
+    </div>
+    <div class="feature-card">
+      <div class="fc-icon">🌐</div>
+      <h5>Bilingual Store (EN / ES)</h5>
+      <p>Full English and Spanish version of the store with seamless language switcher — targeting both international tourists and the Mexican domestic market.</p>
+    </div>
+    <div class="feature-card">
+      <div class="fc-icon">💳</div>
+      <h5>Multi-Gateway Secure Checkout</h5>
+      <p>Stripe and PayPal integrations supporting credit card, bank transfer, and PayPal checkout with USD pricing and tax handling.</p>
+    </div>
+    <div class="feature-card">
+      <div class="fc-icon">🎁</div>
+      <h5>Digital Gift Card System</h5>
+      <p>Purchasable digital gift cards ($250–$1,512 USD) for fishing trips — ideal for gifting experiences, driving new customer acquisition.</p>
+    </div>
+    <div class="feature-card">
+      <div class="fc-icon">🏆</div>
+      <h5>Raffle &amp; Contest Platform</h5>
+      <p>Built-in raffle product category for day trips, gear, and branded merchandise — driving engagement, email sign-ups, and repeat visits.</p>
+    </div>
+    <div class="feature-card">
+      <div class="fc-icon">🧢</div>
+      <h5>Branded Merchandise Store</h5>
+      <p>Limited-edition cap drops with individual product pages — "Caps Drops" collection featuring Lake-branded designs at $69.99 each.</p>
+    </div>
+    <div class="feature-card">
+      <div class="fc-icon">💬</div>
+      <h5>WhatsApp Business Integration</h5>
+      <p>Floating WhatsApp button for instant customer support, trip inquiries, and booking assistance — connecting to the team in real time.</p>
+    </div>
+    <div class="feature-card">
+      <div class="fc-icon">📧</div>
+      <h5>Email Capture &amp; Discount Funnels</h5>
+      <p>Pop-up email capture offering 5% off first order via Monster Campaigns, plus a fishing season newsletter list for repeat bookings.</p>
+    </div>
+    <div class="feature-card">
+      <div class="fc-icon">⏱️</div>
+      <h5>Seasonal Promotions &amp; Countdown Timers</h5>
+      <p>Live countdown banners for time-sensitive deals (e.g. 10% off Mazatlán offshore), driving urgency and on-season booking conversions.</p>
+    </div>
+    <div class="feature-card">
+      <div class="fc-icon">❤️</div>
+      <h5>Wishlist &amp; Trip Comparison</h5>
+      <p>Logged-in users can save fishing trips to a shareable wishlist — useful for group planning and repeat visit engagement.</p>
+    </div>
+    <div class="feature-card">
+      <div class="fc-icon">📝</div>
+      <h5>Blog &amp; Fishing Content Hub</h5>
+      <p>Integrated fishing blog for SEO content marketing — travel guides, fishing tips, location spotlights driving organic search traffic.</p>
+    </div>
+  </div>
+
+  <!-- Outcomes -->
+  <div class="sub-heading">Project Outcomes</div>
+  <div class="outcome-strip">
+    <div class="outcome-item">
+      <div class="big" style="color:#4ADE80;">15+</div>
+      <div class="desc">Fishing Destinations Live on Platform</div>
+    </div>
+    <div class="outcome-item">
+      <div class="big" style="color:var(--blue-lt);">2</div>
+      <div class="desc">Languages — English &amp; Spanish</div>
+    </div>
+    <div class="outcome-item">
+      <div class="big" style="color:var(--amber);">Direct Outreach</div>
+      <div class="desc">Client Acquired via Proactive Engagement</div>
+    </div>
+    <div class="outcome-item">
+      <div class="big" style="color:var(--teal);">MX+LATAM</div>
+      <div class="desc">Regional Market Reach</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <p style="margin-bottom:8px;">
+    <strong>Confidential — Prepared for Client Presentation</strong>
+  </p>
+  <p>Projects delivered across multiple high-growth software frameworks — spanning Custom End-to-End Development, Infrastructure Engineering, and Dedicated Technical Support engagement models.</p>
+  
+  <div class="footer-cta">
+    For further details, demos, or a custom proposal — please reach out directly via email at <a href="mailto:rishpat1678@gmail.com">rishpat1678@gmail.com</a> or WhatsApp at <a href="https://wa.me/919899256945" target="_blank">+91-9899256945</a>.
+  </div>
+</footer>
+
+</body>
+</html>
